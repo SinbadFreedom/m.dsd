@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>查看http请求的header信息</title>
+    <meta name="description" content="通过chrome控制台查看http请求的header信息.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/html/index.html">html</a> > faq
+        > 18.查看http请求的header信息
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/html/faq/17.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/html/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/html/faq/19.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>18.查看http请求的header信息</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 下载chrome浏览器</a><br><a href="#2">2
+                        通过chrome控制台查看http请求的header信息</a><br><a href="#2.1">&nbsp;&nbsp;2.1 打开chrome自带的调试工具</a><br><a
+                            href="#2.2">&nbsp;&nbsp;2.2 选择network标签</a><br><a href="#2.3">&nbsp;&nbsp;2.3
+                        查看当前网页的http头;</a><br><a href="#2.4">&nbsp;&nbsp;2.4 header信息表示的意义</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>使用chrome浏览器自带的开发者工具查看http请求的header信息.</p>
+                </div>
+                <div id="1"><h3>1 下载chrome浏览器</h3></div>
+                <p>chrome浏览器是google开发的一块非常绑定浏览器.<a
+                        href="http://sw.bos.baidu.com/sw-search-sp/software/1dabeccc5dd84/ChromeStandalone_64.0.3282.167_Setup.exe">chrome浏览器下载地址</a>.
+                </p>
+                <div id="2"><h3>2 通过chrome控制台查看http请求的header信息</h3></div>
+                <div id="2.1" class="dsd_title_c_2"><h4>2.1 打开chrome自带的调试工具</h4></div>
+                <p>在网页任意地方右击选择审查元素或者按下shift+ctrl+c,打开chrome自带的调试工具.如图:</p>
+                <p>![18-1](http://localhost/img/html/faq/18-1.jpg =480x213)</p>
+                <div id="2.2" class="dsd_title_c_2"><h4>2.2 选择network标签</h4></div>
+                <p>在调试工具中选择network标签,刷新网页.</p>
+                <div id="2.3" class="dsd_title_c_2"><h4>2.3 查看当前网页的http头;</h4></div>
+                <p>刷新后在左边找到该网页url,点击该url,选择headers,就可以看到当前网页的http头.如图:</p>
+                <p><img class="center-block img-responsive" src="http://localhost/img/html/faq/18-2.png" alt="18-2"/>
+                </p>
+                <div id="2.4" class="dsd_title_c_2"><h4>2.4 header信息表示的意义</h4></div>
+                <p>客户端浏览器请求Header(HTTP request header)</p>
+                <ul>
+                    <li>Host 请求的域名</li>
+                    <li>User-Agent 浏览器端浏览器型号和版本</li>
+                    <li>Accept 可接受的内容类型</li>
+                    <li>Accept-Language 语言</li>
+                    <li>Accept-Encoding 可接受的压缩类型 gzip,deflate</li>
+                    <li>Accept-Charset 可接受的内容编码 UTF-8,*</li>
+                </ul>
+                <p>服务器端的响应Header(response header)</p>
+                <ul>
+                    <li>Date 服务器端时间</li>
+                    <li>Server 服务器端的服务器软件 Apache/2.2.6</li>
+                    <li>Etag 文件标识符</li>
+                    <li>Content-Encoding传送启用了GZIP压缩 gzip</li>
+                    <li>Content-Length 内容长度</li>
+                    <li>Content-Type 内容类型</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/html/faq/17.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/html/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/html/faq/19.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

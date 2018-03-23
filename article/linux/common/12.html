@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>localefacet_S_create_c_locale name not valid</title>
+    <meta name="description" content="linux系统执行mongo备份脚本的时候出现错误S_create_c_locale name not valid解决方法.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/linux/index.html">linux</a> > common
+        > 12.localefacet_S_create_c_locale name not valid
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/linux/common/11.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>12.localefacet_S_create_c_locale name not valid</h1></article>
+            <div id="xs_content_border">
+                <p>linux系统执行mongo备份脚本的时候出现错误提示如下:</p>
+                <pre class="prettyprint"><code>terminate called after throwing an instance of 'std::runtime_error'
+  what():  locale::facet::_S_create_c_locale name not valid
+Aborted (core dumped)
+</code></pre>
+                <ul>
+                    <li><p>问题描述
+                        localefacet<em>S</em>create<em>c</em>locale name not valid</p></li>
+                    <li><p>解决方案</p></li>
+                </ul>
+                <p>在命令行输入</p>
+                <pre class="prettyprint"><code>&gt; export LC_ALL="C"
+</code></pre>
+                <p>去除本地设置即可.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/linux/common/11.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

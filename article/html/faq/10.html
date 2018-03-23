@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>点击div跳转页面</title>
+    <meta name="description" content="html页面点击div在新窗口打开页面 html页面点击div在当前窗口打开页面 html打开新页面参数说明 _blank _parent _self _top">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/html/index.html">html</a> > faq
+        > 10.点击div跳转页面
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/html/faq/9.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/html/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/html/faq/11.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>10.点击div跳转页面</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 html页面点击div在新窗口打开页面</a><br><a href="#2">2
+                        html页面点击div在当前窗口打开页面</a><br><a href="#3">3 html打开新页面参数说明</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>一般跳转链接直接用a标签就可以实现点击链接跳转.有时候需要将点击区域扩大到整个div区域.这是就就需要点击div跳转页面.有2种两种常用方式.</p>
+                </div>
+                <div id="1"><h3>1 html页面点击div在新窗口打开页面</h3></div>
+                <p>htm代码:</p>
+                <pre class="prettyprint"><code class="html language-html">&lt;div onclick="window.open('http://dashidan.com')"&gt;在新窗口跳转至大屎蛋教程网&lt;/div&gt;
+</code></pre>
+                <div id="2"><h3>2 html页面点击div在当前窗口打开页面</h3></div>
+                <p>htm代码:</p>
+                <pre class="prettyprint"><code>&lt;div onclick="window.open('http://dashidan.com','_self')"&gt;在当前窗口跳转至大屎蛋教程网&lt;/div&gt;
+</code></pre>
+                <p>这个和上一个的区别是加了_self参数, 表示在当前页面打开.</p>
+                <div id="3"><h3>3 html打开新页面参数说明</h3></div>
+                <ul>
+                    <li>_blank: 在新窗口中打开链接</li>
+                    <li>_parent: 在父窗体中打开链接</li>
+                    <li>_self: 在当前窗体打开链接,此为默认值</li>
+                    <li>_top: 在当前窗体打开链接,并替换当前的整个窗体(框架页)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/html/faq/9.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/html/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/html/faq/11.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

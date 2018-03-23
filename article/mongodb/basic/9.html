@@ -1,0 +1,356 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>mongo常用命令 - Mongodb中文手册 - 大屎蛋教程网</title>
+    <meta name="description"
+          content="mongo常用命令:mongo命令历史记录,常用mongo命令行选项,常用mongo命令行帮助,mongo常用JavaScript数据库操作,mongo常用查询语句,mongo错误检查方法,mongo常用数据库管理命令帮助.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > basic
+        > 9.mongo常用命令
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/mongodb/basic/8.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/mongodb/basic/10.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>9.mongo常用命令</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongo命令历史记录</a><br><a href="#2">2
+                        常用mongo命令行选项</a><br><a href="#3">3 常用mongo命令行帮助</a><br><a href="#4">4 mongo常用JavaScript数据库操作</a><br><a
+                            href="#5">5 mongo常用查询语句</a><br><a href="#6">6 mongo错误检查方法</a><br><a href="#7">7
+                        mongo常用数据库管理命令帮助</a><br><a href="#8">8 mongo其他常用命令</a><br><a href="#9">9 参考文章</a><br><a
+                            href="#10">10 相关文章</a></div>
+                </div>
+                <div id="1"><h3>1 mongo命令历史记录</h3></div>
+                <p>在mongo命令中按上下键, 可以查看mongo命令的历史记录. 在Linux系统中, mongo的历史记录文件存储在<code>~/.dbshell</code>中.</p>
+                <div id="2"><h3>2 常用mongo命令行选项</h3></div>
+                <p>常用mongo命令行选项表</p>
+                <table class="table table-bordered table-responsive text-center">
+                    <thead>
+                    <tr class="info">
+                        <td>选项</td>
+                        <td>描述</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>--help</td>
+                        <td>显示命令行选项</td>
+                    </tr>
+                    <tr>
+                        <td>--nodb</td>
+                        <td>开启mongo命令行, 不连接数据库</td>
+                    </tr>
+                    <tr>
+                        <td>--shell</td>
+                        <td>运行执行JavaScript脚本后继续执行mongo命令</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="3"><h3>3 常用mongo命令行帮助</h3></div>
+                <p>常用mongo命令行帮助表</p>
+                <table class="table table-bordered table-responsive text-center">
+                    <thead>
+                    <tr class="info">
+                        <td>帮助方法和命令</td>
+                        <td>描述</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>help</td>
+                        <td>显示帮助</td>
+                    </tr>
+                    <tr>
+                        <td>db.help()</td>
+                        <td>显示database的帮助方法</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.help()</td>
+                        <td>显示collection的帮助方法.集合collection可以不存在.</td>
+                    </tr>
+                    <tr>
+                        <td>show dbs</td>
+                        <td>显示全部数据库.</td>
+                    </tr>
+                    <tr>
+                        <td>show dbs</td>
+                        <td>显示全部数据库.</td>
+                    </tr>
+                    <tr>
+                        <td>use db</td>
+                        <td>切换到db数据库.</td>
+                    </tr>
+                    <tr>
+                        <td>show collections</td>
+                        <td>显示当前数据库的全部集合.</td>
+                    </tr>
+                    <tr>
+                        <td>show users</td>
+                        <td>显示当前数据库的全部用户.</td>
+                    </tr>
+                    <tr>
+                        <td>show roles</td>
+                        <td>显示当前数据库的全部角色包括内部创建的和自定义的.</td>
+                    </tr>
+                    <tr>
+                        <td>show profile</td>
+                        <td>显示最近的5条耗时超过1毫秒的命令.</td>
+                    </tr>
+                    <tr>
+                        <td>show databases</td>
+                        <td>显示全部数据库.</td>
+                    </tr>
+                    <tr>
+                        <td>load()</td>
+                        <td>运行JavaScript脚本.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="4"><h3>4 mongo常用JavaScript数据库操作</h3></div>
+                <p>mongo常用JavaScript方法表</p>
+                <table class="table table-bordered table-responsive text-center">
+                    <thead>
+                    <tr class="info">
+                        <td>JavaScript数据库操作</td>
+                        <td>描述</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>db.auth()</td>
+                        <td>用户认证</td>
+                    </tr>
+                    <tr>
+                        <td>coll = db.COLLECTION</td>
+                        <td>选择当前数据库的指定集合.</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.find()</td>
+                        <td>查找数据</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.insertOne()</td>
+                        <td>插入一条</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.insertMany()</td>
+                        <td>插入多条</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.updateOne()</td>
+                        <td>修改一条数据</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.updateMany()</td>
+                        <td>修改多条数据</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.save()</td>
+                        <td>插入或修改数据</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.deleteOne()</td>
+                        <td>删除一条</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.deleteMany()</td>
+                        <td>删除多条</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.drop()</td>
+                        <td>删除集合</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.createIndex()</td>
+                        <td>创建索引</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.getSiblingDB()</td>
+                        <td>返回同一个连接中其他的数据库, 不用显式切换数据库.用在跨库查询.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="5"><h3>5 mongo常用查询语句</h3></div>
+                <p>mongo常用查询语句表</p>
+                <table class="table table-bordered table-responsive text-center">
+                    <thead>
+                    <tr class="info">
+                        <td>查询操作</td>
+                        <td>描述</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>db.collection.find(query)</td>
+                        <td>根据query查询数据.<br>
+                            coll = db.users;<br>
+                            coll.find( { name: "Joe" } );
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.find(query, projection)</td>
+                        <td>根据query查询数据, 返回指定字段projection数据.<br>
+                            coll = db.users;<br>
+                            coll.find( { }, { name: true } );
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.find().sort(sort order)</td>
+                        <td>根据query查询数据, 根据指定字段排序, 1位增序, -1为降序.<br>
+                            coll = db.users;<br>
+                            coll.find().sort( { name: 1 } )
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.find( ... ).limit( n )</td>
+                        <td>根据query查询数据, 返回n条数据.</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.find( ... ).skip( n )td>
+                        <td>查询结果跳过n条.</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.count()</td>
+                        <td>返回集合中文档总条数.</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.find(query).count()</td>
+                        <td>返回查询结果条数, 葫芦skip和limit.</td>
+                    </tr>
+                    <tr>
+                        <td>db.collection.findOne(query)</td>
+                        <td>查询query数据, 返回一条.等同find().limit(1)</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="6"><h3>6 mongo错误检查方法</h3></div>
+                <p>2.6版修改.</p>
+                <p>2.6版之前采用<code>db.getLastError()</code>和<code>db.getLastErrorObj()</code>返回错误信息.</p>
+                <p>2.6版以后mongo写入方法, 返回一个<code>WriteResult()</code>对象, 包括写入的结果, 包含写入错误和连接错误.</p>
+                <div id="7"><h3>7 mongo常用数据库管理命令帮助</h3></div>
+                <p>mongo常用数据库管理命令帮助表</p>
+                <table class="table table-bordered table-responsive text-center">
+                    <thead>
+                    <tr class="info">
+                        <td>JavaScript数据库管理命令</td>
+                        <td>描述</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>db.cloneDatabase(host)</td>
+                        <td>复制数据库.host数据库必须在非认证模式.</td>
+                    </tr>
+                    <tr>
+                        <td>db.copyDatabase(from, to, host)</td>
+                        <td>复制host的from数据库到本机的to数据库.host数据库必须在非认证模式.</td>
+                    </tr>
+                    <tr>
+                        <td>db.fromColl.renameCollection(toColl)</td>
+                        <td>mongo集合改名</td>
+                    </tr>
+                    <tr>
+                        <td>db.getCollectionNames()</td>
+                        <td>获得全部集合名</td>
+                    </tr>
+                    <tr>
+                        <td>db.dropDatabase()</td>
+                        <td>删除当前数据库</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="8"><h3>8 mongo其他常用命令</h3></div>
+                <ul>
+                    <li>Object.bsonsize(document) 打印document文档的BSON格式字节数</li>
+                </ul>
+                <div id="9"><h3>9 参考文章</h3></div>
+                <p><a href="https://docs.mongodb.com/manual/mongo/">https://docs.mongodb.com/manual/mongo/</a></p>
+                <div id="10"><h3>10 相关文章</h3></div>
+                <p><a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/mongodb/basic/8.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/mongodb/basic/10.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

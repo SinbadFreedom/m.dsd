@@ -1,0 +1,322 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>mongo命令提示符帮助 - Mongodb中文手册 - 大屎蛋教程网</title>
+    <meta name="description"
+          content="mongo命令行参数帮助,mongo指令帮助,mongo数据库帮助,显示全部数据库,显示方法的实现,mongodb集合帮助,显示全部集合,显示集合方法实现,cursor帮助.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > basic
+        > 6.mongo命令提示符帮助
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/mongodb/basic/5.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/mongodb/basic/7.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>6.mongo命令提示符帮助</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongo命令行参数帮助</a><br><a href="#2">2
+                        mongo指令帮助</a><br><a href="#3">3 数据库帮助</a><br><a href="#3.1">&nbsp;&nbsp;3.1 显示全部数据库</a><br><a
+                            href="#3.2">&nbsp;&nbsp;3.2 显示部数据操作帮助</a><br><a href="#3.3">&nbsp;&nbsp;3.3
+                        显示方法的实现</a><br><a href="#4">4 集合帮助</a><br><a href="#4.1">&nbsp;&nbsp;4.1 显示全部集合</a><br><a
+                            href="#4.2">&nbsp;&nbsp;4.2 显示集合帮助</a><br><a href="#4.3">&nbsp;&nbsp;4.3 显示集合方法实现</a><br><a
+                            href="#5">5 cursor帮助</a><br><a href="#6">6 包装对象帮助</a><br><a href="#7">7 参考文章</a><br><a
+                            href="#8">8 相关文章</a></div>
+                </div>
+                <div id="1"><h3>1 mongo命令行参数帮助</h3></div>
+                <p>通过<code>--help</code>参数显示命令行帮助信息</p>
+                <pre class="prettyprint"><code>mongo --help
+</code></pre>
+                <p>显示:</p>
+                <pre class="prettyprint"><code>MongoDB shell version: 2.0.4
+usage: mongo [options] [db address] [file names (ending in .js)]
+db address can be:
+  foo                   foo database on local machine
+  192.169.0.5/foo       foo database on 192.168.0.5 machine
+  192.169.0.5:9999/foo  foo database on 192.168.0.5 machine on port 9999
+options:
+  --shell               run the shell after executing files
+  --nodb                don't connect to mongod on startup - no 'db address' 
+                        arg expected
+  --norc                开始不执行".mongorc.js"文件
+  --quiet               安静模式
+  --port arg            端口
+  --host arg            IP
+  --eval arg            运行javascript脚本
+  -u [ --username ] arg 用户名
+  -p [ --password ] arg 密码
+  -h [ --help ]         显示这个帮助信息
+  --version             版本号
+  --verbose             increase verbosity
+  --ipv6                开启IPv6支持(默认关闭)
+</code></pre>
+                <div id="2"><h3>2 mongo指令帮助</h3></div>
+                <p>通过命令提示符连上mongo数据库后,可以输入<code>help</code>来显示命令提示符帮助.</p>
+                <pre class="prettyprint"><code>help
+</code></pre>
+                <p>会显示:</p>
+                <pre class="prettyprint"><code>db.help()                    数据库方法帮助信息
+db.mycoll.help()             集合方法帮助信息
+rs.help()                    help on replica set methods
+help admin                   管理员帮助信息
+help connect                 连接数据库帮助
+help keys                    快捷键
+help misc                    杂项信息帮助
+help mr                      mapreduce帮助
+
+show dbs                     显示全部数据库名
+show collections             显示当前数据库中的全部集合名
+show users                   显示当前数据库的全部用户
+show profile                 show most recent system.profile entries with time &gt;= 1ms
+show logs                    显示可以连接的日志(`logger`)名
+show log [name]              输出内存中的最近log的片段, 默认输出`global`
+use &lt;db_name&gt;                设定当前数据库
+db.foo.find()                显示集合`foo`中的对象列表
+db.foo.find( { a : 1 } )     查询foo集合中`a == 1`的对象
+it                           输入it, 继续迭代显示结果, 输出更多结果
+DBQuery.shellBatchSize = x   设置显示结果条数
+exit                         退出命令行
+</code></pre>
+                <div id="3"><h3>3 数据库帮助</h3></div>
+                <div id="3.1" class="dsd_title_c_2"><h4>3.1 显示全部数据库</h4></div>
+                <pre class="prettyprint"><code>show dbs
+</code></pre>
+                <div id="3.2" class="dsd_title_c_2"><h4>3.2 显示部数据操作帮助</h4></div>
+                <pre class="prettyprint"><code>db.help()
+</code></pre>
+                <div id="3.3" class="dsd_title_c_2"><h4>3.3 显示方法的实现</h4></div>
+                <p>显示一个数据的方法的具体实现，输入<code>db.&lt;method name&gt;</code>不带<code>()</code>.
+                    例如:</p>
+                <pre class="prettyprint"><code>db.updateUser
+</code></pre>
+                <p>显示:</p>
+                <pre class="prettyprint"><code>test.updateUser
+</code></pre>
+                <div id="4"><h3>4 集合帮助</h3></div>
+                <div id="4.1" class="dsd_title_c_2"><h4>4.1 显示全部集合</h4></div>
+                <pre class="prettyprint"><code>show collections
+</code></pre>
+                <div id="4.2" class="dsd_title_c_2"><h4>4.2 显示集合帮助</h4></div>
+                <pre class="prettyprint"><code>db.collection.help()
+</code></pre>
+                <p>显示</p>
+                <pre class="prettyprint"><code>db.collection.find().help() - show DBCursor help
+db.collection.count()
+db.collection.dataSize()
+db.collection.distinct( key ) - eg. db.collection.distinct( 'x' )
+db.collection.drop() drop the collection
+db.collection.dropIndex(name)
+db.collection.dropIndexes()
+db.collection.ensureIndex(keypattern[,options]) - options is an object with these possible fields: name, unique, dropDups
+db.collection.reIndex()
+db.collection.find([query],[fields]) - query is an optional query filter. fields is optional set of fields to return.
+                                              e.g. db.collection.find( {x:77} , {name:1, x:1} )
+db.collection.find(...).count()
+db.collection.find(...).limit(n)
+db.collection.find(...).skip(n)
+db.collection.find(...).sort(...)
+db.collection.findOne([query])
+db.collection.findAndModify( { update : ... , remove : bool [, query: {}, sort: {}, 'new': false] } )
+db.collection.getDB() get DB object associated with collection
+db.collection.getIndexes()
+db.collection.group( { key : ..., initial: ..., reduce : ...[, cond: ...] } )
+db.collection.mapReduce( mapFunction , reduceFunction , &lt;optional params&gt; )
+db.collection.remove(query)
+db.collection.renameCollection( newName , &lt;dropTarget&gt; ) renames the collection.
+db.collection.runCommand( name , &lt;options&gt; ) runs a db command with the given name where the first param is the collection name
+db.collection.save(obj)
+db.collection.stats()
+db.collection.storageSize() - includes free space allocated to this collection
+db.collection.totalIndexSize() - size in bytes of all the indexes
+db.collection.totalSize() - storage allocated for all data and indexes
+db.collection.update(query, object[, upsert_bool, multi_bool])
+db.collection.validate( &lt;full&gt; ) - SLOW
+db.collection.getShardVersion() - only for use with sharding
+db.collection.getShardDistribution() - prints statistics about data distribution in the cluster
+</code></pre>
+                <div id="4.3" class="dsd_title_c_2"><h4>4.3 显示集合方法实现</h4></div>
+                <p>显示方法实现输入<code>db.&lt;collection&gt;.&lt;method&gt;</code>, 不带<code>()</code>.
+                    例如输入:</p>
+                <pre class="prettyprint"><code>db.collection.save
+</code></pre>
+                <p>显示:</p>
+                <pre class="prettyprint"><code>function (obj) {
+    if (obj == null || typeof obj == "undefined") {
+        throw "can't save a null";
+    }
+    if (typeof obj == "number" || typeof obj == "string") {
+        throw "can't save a number or string";
+    }
+    if (typeof obj._id == "undefined") {
+        obj._id = new ObjectId;
+        return this.insert(obj);
+    } else {
+        return this.update({_id:obj._id}, obj, true);
+    }
+}
+</code></pre>
+                <div id="5"><h3>5 cursor帮助</h3></div>
+                <p>当你在mongo命令行使用find()方法时, 可以使用很多cursor方法来修改find()行为和结果.</p>
+                <ul>
+                    <li><p>显示find()方法可用的修改器和cursor处理方法</p>
+                        <p>db.collection.find().help()</p></li>
+                </ul>
+                <p>显示:</p>
+                <pre class="prettyprint"><code>&gt; db.collection.find().help()
+find() modifiers
+    .sort( {...} )
+    .limit( n )
+    .skip( n )
+    .count() - total # of objects matching query, ignores skip,limit
+    .size() - total # of objects cursor would return, honors skip,limit
+    .explain([verbose])
+    .hint(...)
+    .showDiskLoc() - adds a $diskLoc field to each returned object
+
+Cursor methods
+    .forEach( func )
+    .map( func )
+    .hasNext()
+    .next()
+</code></pre>
+                <ul>
+                    <li>看cursor方法的实现, 输入<code>db.&lt;collection&gt;.find().&lt;method&gt;</code>, 不包含<code>()</code>.
+                        例如:
+                    </li>
+                </ul>
+                <pre class="prettyprint"><code>db.collection.find().toArray
+</code></pre>
+                <p>显示:</p>
+                <pre class="prettyprint"><code>&gt; db.collection.find().toArray
+function () {
+    if (this._arr) {
+        return this._arr;
+    }
+    var a = [];
+    while (this.hasNext()) {
+        a.push(this.next());
+    }
+    this._arr = a;
+    return a;
+}
+</code></pre>
+                <p>常用的cursor方法</p>
+                <ul>
+                    <li>hasNext() 查询cursor是否还有数据.</li>
+                    <li>next() 返回下一个数据对象, 并且cursor指向位置加1.</li>
+                    <li>forEach(function) function方法遍历执行全部结果.function只有1参数, 迭代器中指向的对象.</li>
+                </ul>
+                <div id="6"><h3>6 包装对象帮助</h3></div>
+                <p>可以通过输入help misc来获取对象包装类.</p>
+                <pre class="prettyprint"><code>help misc
+</code></pre>
+                <p>显示:</p>
+                <pre class="prettyprint"><code>&gt; help misc
+    b = new BinData(subtype,base64str)  create a BSON BinData value
+    b.subtype()                         the BinData subtype (0..255)
+    b.length()                          length of the BinData data in bytes
+    b.hex()                             the data as a hex encoded string
+    b.base64()                          the data as a base 64 encoded string
+    b.toString()
+
+    b = HexData(subtype,hexstr)         create a BSON BinData value from a hex string
+    b = UUID(hexstr)                    create a BSON BinData value of UUID subtype
+    b = MD5(hexstr)                     create a BSON BinData value of MD5 subtype
+
+    o = new ObjectId()                  create a new ObjectId
+    o.getTimestamp()                    return timestamp derived from first 32 bits of the OID
+    o.isObjectId()
+    o.toString()
+    o.equals(otherid)
+</code></pre>
+                <div id="7"><h3>7 参考文章</h3></div>
+                <p><a href="https://docs.mongodb.com/manual/tutorial/access-mongo-shell-help/">https://docs.mongodb.com/manual/tutorial/access-mongo-shell-help/</a>
+                </p>
+                <div id="8"><h3>8 相关文章</h3></div>
+                <p><a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/mongodb/basic/5.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/mongodb/basic/7.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

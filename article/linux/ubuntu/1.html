@@ -1,0 +1,165 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>linux搭建nginx+mysql+php+php-fpm</title>
+    <meta name="description" content="新一代的linux系统web组合LNMP(Linux, Nginx, Mysql, PHP)环境搭建过程.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/linux/index.html">linux</a> > ubuntu
+        > 1.linux搭建nginx+mysql+php+php-fpm
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/linux/ubuntu/2.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>1.linux搭建nginx+mysql+php+php-fpm</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux安装nginx php mysql php-fpm服务</a><br><a
+                            href="#2">2 创建web目录</a><br><a href="#3">3 修改nginx root路径</a><br><a href="#4">4
+                        nginx开启php解析功能</a><br><a href="#5">5 重启nginx,php-fpm</a><br><a href="#6">6 测试nginx,
+                        php-fpm是否配置成功</a><br><a href="#7">7 测试php, mysql连接</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>在linux系统中,LAMP(Linux, Apache, MySql, PHP)曾经是最流行的web服务器组合.在nginx问世之后,以高效,轻量的优势,引起了IT行业的变革.
+                        以迅雷不及掩耳之势替代了很多apache的市场份额.成为了新一代的linux系统web组合LNMP(Linux, Nginx, Mysql, PHP).</p>
+                </div>
+                <div id="1"><h3>1 linux安装nginx php mysql php-fpm服务</h3></div>
+                <ul>
+                    <li>Ubuntu安装nginx php mysql php-fpm服务</li>
+                </ul>
+                <p>输入以下命令:</p>
+                <pre class="prettyprint"><code>apt-get update
+apt-get install nginx
+apt-get install php5-cli php5-cgi mysql-server php5-mysql
+apt-get install php5-fpm
+</code></pre>
+                <ul>
+                    <li>Centos安装nginx php mysql php-fpm服务</li>
+                </ul>
+                <p>输入以下命令:</p>
+                <pre class="prettyprint"><code>yum install nginx
+yum install php5-cli php5-cgi mysql-server php5-mysql
+yum install php5-fpm
+</code></pre>
+                <div id="2"><h3>2 创建web目录</h3></div>
+                <p>输入以下命令:</p>
+                <pre class="prettyprint"><code>mkdir -p /dashidan.com/plateform/web
+</code></pre>
+                <div id="3"><h3>3 修改nginx root路径</h3></div>
+                <p>输入以下命令:</p>
+                <pre class="prettyprint"><code>vim /etc/nginx/sites-enabled/default
+</code></pre>
+                <p><code>index</code> 字段后边加入<code>index.php</code>, 开启默认支持查找<code>index.php</code>入口.</p>
+                <div id="4"><h3>4 nginx开启php解析功能</h3></div>
+                <p>打开注释掉php解析的部分.通过find命令查找<code>php-fpm.sock</code>文件的路径:</p>
+                <pre class="prettyprint"><code>find / -name php5-fpm.sock
+</code></pre>
+                <p>不同版本的linux操作系统和php的版本不一样, 有的有该文件, 有的没有.如果有<code>php5-fpm.sock</code>文件, 将这个路径设置到php-fpm区域.如果没有<code>php5-fpm.sock</code>文件,
+                    采用<code>php-cgi</code>的9000端口配置. </p>
+                <div id="5"><h3>5 重启nginx,php-fpm</h3></div>
+                <pre class="prettyprint"><code>service nginx restart
+service php5-fpm restart
+</code></pre>
+                <div id="6"><h3>6 测试nginx, php-fpm是否配置成功</h3></div>
+                <p>通过<code>phpinfo()</code>查看php是否配置成功.将以下代码复制, 保存为<code>index.php</code>, 放入web根目录.使用浏览器打开ip地址,
+                    查看是否有php配置信息, 有的话说明成功.</p>
+                <pre class="prettyprint"><code class="php language-php">&lt;?php
+    phpinfo();
+?&gt;
+</code></pre>
+                <p><code>phpinfo()</code>显示了php支持的所有木块, 如果其中有<code>Mysql</code>标签信息, 说明<code>php-mysql</code>扩展安装成功,
+                    如果没有, 需要重新安装<code>php-mysql</code>模块.</p>
+                <div id="7"><h3>7 测试php, mysql连接</h3></div>
+                <p>将以下代码复制到test.php文件中.</p>
+                <pre class="prettyprint"><code class="php language-php">&lt;?php
+    $link=mysql_connect("localhost","root","123");
+    if(!$link) echo "请检查php用户名密码.大屎蛋教程网.";
+    else echo "OK!可以连接";
+?&gt;
+</code></pre>
+                <p>这里的用户名和密码改为安装<code>mysql</code>时自己设定的密码.在浏览器打开"http://localhost/test.php",
+                    如果显示"OK!可以连接"说明nginx+mysql+php+php-fpm配置成功.如果显示"请检查php用户名密码.大屎蛋教程网."表示配置错误, 重新检查各项配置及数据库的用户名和密码.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/linux/ubuntu/2.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

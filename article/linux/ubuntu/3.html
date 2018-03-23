@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>linux安装配置Apollo及常用命令</title>
+    <meta name="description" content="Apollo是apache基金会的一个开源项目源于ActiveMQ基础上重新设计的效率更高的消息中间件.广泛应用于服务器间的消息分发和收取.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/linux/index.html">linux</a> > ubuntu
+        > 3.linux安装配置Apollo及常用命令
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/linux/ubuntu/2.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/linux/ubuntu/4.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>3.linux安装配置Apollo及常用命令</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux下载apollo</a><br><a href="#2">2
+                        tar解压缩apollo源码包</a><br><a href="#3">3 apollo创建Broker</a><br><a href="#4">4 linux启动Apollo</a><br><a
+                            href="#5">5 linux停止Apollo</a><br><a href="#6">6 apollo自带web控制台 </a><br><a href="#7">7
+                        apollo默认用户名和密码</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>Apollo是apache基金会的一个开源项目源于ActiveMQ基础上重新设计的效率更高的消息中间件.广泛应用于服务器间的消息分发和收取.</p>
+                </div>
+                <div id="1"><h3>1 linux下载apollo</h3></div>
+                <p>linux中通过wget命令下载指定的url地址内容.默认保存到当前目录.</p>
+                <pre class="prettyprint"><code>wget http://mirrors.tuna.tsinghua.edu.cn/apache/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz
+</code></pre>
+                <div id="2"><h3>2 tar解压缩apollo源码包</h3></div>
+                <pre class="prettyprint"><code>tar -zxvf apache-apollo-1.7.1-unix-distro.tar.gz
+</code></pre>
+                <p>更多tar解压缩命令参考<a href="http://localhost/article/linux/common/9.html">Linux压缩和解压缩</a>.</p>
+                <div id="3"><h3>3 apollo创建Broker</h3></div>
+                <p>以下脚本会在apollo的安装目录中创建一个名为mybroker的代理.</p>
+                <pre class="prettyprint"><code>${APOLLO_HOME}/bin/apollo create mybroker
+</code></pre>
+                <div id="4"><h3>4 linux启动Apollo</h3></div>
+                <p>可以将以下脚本保存为"apollo<em>start.sh", 然后通过"sh apollo</em>start.sh"来运行, 这样就不用每次都输入启动命令了.</p>
+                <pre class="prettyprint"><code>/var/lib/mybroker/bin/apollo-broker run &amp;
+</code></pre>
+                <div id="5"><h3>5 linux停止Apollo</h3></div>
+                <p>通过"ps -ef|grep apollo"查找apollo进程id, 然后通过"kill -9 pid"来停止进程.</p>
+                <div id="6"><h3>6 apollo自带web控制台 </h3></div>
+                <p>apollo自带一个web控制台可以通过这个控制台查看apollo的状态.默认web控制台地址:</p>
+                <pre class="prettyprint"><code>http://127.0.0.1:61680
+</code></pre>
+                <p>这个地址和端口可以在apollo.conf文件中修改.</p>
+                <div id="7"><h3>7 apollo默认用户名和密码</h3></div>
+                <p>默认用户名"admin",默认密码"password".</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/linux/ubuntu/2.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/linux/ubuntu/4.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>linux定时任务crontab</title>
+    <meta name="description" content="linux的crontab命令是定时任务, 用来设置linux服务器在固定时间或固定间隔执行特定命令.crontab命令格式,crontab命令参数及示例.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/linux/index.html">linux</a> > common
+        > 2.linux定时任务crontab
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/linux/common/1.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/linux/common/3.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>2.linux定时任务crontab</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 crontab命令基本格式</a><br><a href="#2">2
+                        crontab命令参数</a><br><a href="#3">3 crontab配置定时任务示例</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>linux的crontab命令是定时任务, 用来设置linux服务器在固定时间或固定间隔执行特定命令.</p>
+                </div>
+                <div id="1"><h3>1 crontab命令基本格式</h3></div>
+                <pre class="prettyprint"><code>分    时   日   月   周   命令
+M    H   D   m   d   command
+</code></pre>
+                <p>crontab命令中对应字段意义:</p>
+                <ul>
+                    <li><code>M</code>: 分钟(0-59), 每分钟用*或者 */1表示 .</li>
+                    <li><code>H</code>：小时(0-23), 0表示0点.</li>
+                    <li><code>D</code>：天(1-31).</li>
+                    <li><code>m</code>: 月(1-12).</li>
+                    <li><code>d</code>: 一星期内的天(0~6), 0为星期天.</li>
+                    <li><code>command</code>: 需要执行的命令</li>
+                </ul>
+                <p>参数说明:</p>
+                <p>参数为<code>*</code>时表示每对应的位置的单位都要执行对应命令.
+                    参数为<code>a-b</code>时表示从第<code>a</code>分钟到第<code>b</code>个时间间隔这段时间内要执行.
+                    参数为<code>*/n</code>时表示每<code>n</code>个时间间隔执行一次.
+                    参数为<code>a, b, c,...</code>时, 表示第 a, b, c,... 个时间间隔要执行.</p>
+                <div id="2"><h3>2 crontab命令参数</h3></div>
+                <pre class="prettyprint"><code>crontab file [-u user]-用指定的文件替代目前的crontab.
+crontab-[-u user]-用标准输入替代目前的crontab.    
+crontab-1[user]-列出用户目前的crontab.    
+crontab-e[user]-编辑用户目前的crontab.    
+crontab-d[user]-删除用户目前的crontab.    
+crontab-c dir- 指定crontab的目录.    
+</code></pre>
+                <div class="bs-callout bs-callout-info">
+                    <h4>crontab -u user</h4>
+                    <p>crontab -u user是指设定指定user 的定时任务,这个前提是你必须要有其权限(比如说是root)才能够指定他人的定时任务. 如果不使用`-u user` 的话,
+                        表示设定自己的定时任务.</p>
+                </div>
+                <div id="3"><h3>3 crontab配置定时任务示例</h3></div>
+                <ul>
+                    <li>每晚的21:30重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>30 21 * * * service nginx restart
+</code></pre>
+                <ul>
+                    <li>每月1、10、22日的4 : 45重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>45 4 1,10,22 * * service nginx restart
+</code></pre>
+                <ul>
+                    <li>周六、周日的1 : 10重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>10 1 * * 6,0 service nginx restart
+</code></pre>
+                <ul>
+                    <li>每天18 : 00至23 : 00之间每隔30分钟重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>0,30 18-23 * * * service nginx restart
+</code></pre>
+                <ul>
+                    <li>每星期六的11 : 00 pm重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>0 23 * * 6 service nginx restart
+</code></pre>
+                <ul>
+                    <li>每一小时重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>0 */1 * * * service nginx restart
+</code></pre>
+                <ul>
+                    <li>晚上11点到早上7点之间,每隔一小时重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>0 11 4 * mon-wed service nginx restart
+</code></pre>
+                <ul>
+                    <li>每月的4号与每周一到周三的11点重启nginx</li>
+                </ul>
+                <pre class="prettyprint"><code>0 4 1 jan * service nginx restart
+</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/linux/common/1.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/linux/common/3.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Linux的shell脚本中数组及数组遍历</title>
+    <meta name="description"
+          content="在linux的shell中编写脚本的时候,经常会用到数组的操作.本文举例说明了linux的shell声明数组, linux数组数据的读取, linux数组的遍历, linux执行shell遍历数组的时候报错解决.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/linux/index.html">linux</a> > common
+        > 11.Linux的shell脚本中数组及数组遍历
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/linux/common/10.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/linux/common/12.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>11.Linux的shell脚本中数组及数组遍历</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux声明数组</a><br><a href="#2">2
+                        linux数组数据的读取</a><br><a href="#3">3 linux数组的遍历</a><br><a href="#4">4 linux执行shell遍历数组的时候报错</a>
+                    </div>
+                </div>
+                <div class="jumbotron">
+                    <p>在linux的shell中编写脚本的时候, 经常会用到数组的操作.本文举例说明了linux的shell声明数组, linux数组数据的读取, linux数组的遍历,
+                        linux执行shell遍历数组的时候报错解决.</p>
+                </div>
+                <div id="1"><h3>1 linux声明数组</h3></div>
+                <p>linux声明数组是用圆括号包数组元素包起来，数组元素之间用空格隔开。</p>
+                <p>示例:</p>
+                <pre class="prettyprint"><code>array=(element1 element2 element3 .... elementN)
+</code></pre>
+                <div id="2"><h3>2 linux数组数据的读取</h3></div>
+                <pre class="prettyprint"><code>#echo ${array[0]}
+#echo ${array[index]}  
+</code></pre>
+                <div id="3"><h3>3 linux数组的遍历</h3></div>
+                <p>获取数组全部数据：</p>
+                <pre class="prettyprint"><code>${array[@]}
+</code></pre>
+                <p>遍历数组数据:</p>
+                <pre class="prettyprint"><code>for data in ${array[@]}
+do  
+    echo ${data}  
+done  
+</code></pre>
+                <div id="4"><h3>4 linux执行shell遍历数组的时候报错</h3></div>
+                <p>linux执行shell遍历数组的时候报错Syntax error: "(" unexpected.</p>
+                <ul>
+                    <li>脚本示例:</li>
+                </ul>
+                <pre class="prettyprint"><code>#!/bin/sh
+a=(1 2 3) 
+for number in a[@]doechonumber 
+done 
+</code></pre>
+                <ul>
+                    <li><p>原因分析:
+                        sh被重定向到dash，因此，如果执行./example.sh，则使用的是dash.dash不支持数组.</p></li>
+                    <li><p>解决方案:</p></li>
+                </ul>
+                <p>1.将脚本第一行改为 #!/bin/bash
+                    2.通过bash example.sh执行</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/linux/common/10.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/linux/common/12.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Linux与Windows文件互传</title>
+    <meta name="description" content="通过rz命令能够很方便的从windows向linux服务器传送文件.sz命令能够从linux向windows传文件.这两个命令在同一个程序安装包lrzsz中.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/linux/index.html">linux</a> > common
+        > 7.Linux与Windows文件互传
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/linux/common/6.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/linux/common/8.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>7.Linux与Windows文件互传</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux安装rz和sz命令</a><br><a href="#1.1">&nbsp;&nbsp;1.1
+                        Ubuntu安装rz/sz命令</a><br><a href="#1.2">&nbsp;&nbsp;1.2 CentOS安装rz/sz命令</a><br><a href="#2">2
+                        使用rz命令从windows向linux传文件</a><br><a href="#3">3 使用sz命令从linux向windows传文件</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>
+                        在日常开发中经常会是在windows环境中开发,而linux作为生产环境.这样就会频繁的用到从linux和windows互相传文件.有些公司采用ftp的方式这种方式需要搭建额外的ftp服务器和客户端工具操作比较繁琐,
+                        而通过rz和sz命令实现linux和windows互传文件就简单多了.
+                        通过`rz`命令能够很方便的从windows向linux服务器传送文件."sz"命令能够从linux向windows传文件.这两个命令在同一个程序安装包"lrzsz"中.</p>
+                </div>
+                <div id="1"><h3>1 linux安装rz和sz命令</h3></div>
+                <p>rz命令和sz命令在lrzsz包中.</p>
+                <div id="1.1" class="dsd_title_c_2"><h4>1.1 Ubuntu安装rz/sz命令</h4></div>
+                <pre class="prettyprint"><code>apt-get install lrzsz
+</code></pre>
+                <div id="1.2" class="dsd_title_c_2"><h4>1.2 CentOS安装rz/sz命令</h4></div>
+                <pre class="prettyprint"><code>yum install lrzsz
+</code></pre>
+                <div id="2"><h3>2 使用rz命令从windows向linux传文件</h3></div>
+                <p>使用ssh工具putty或者xshell连接linux服务器后, 输入命令:</p>
+                <pre class="prettyprint"><code>rz
+</code></pre>
+                <p>会弹出提示框, 选择本地目录和文件, 点击确定上传.</p>
+                <div id="3"><h3>3 使用sz命令从linux向windows传文件</h3></div>
+                <p>使用ssh工具连接linux服务器后输入sz命令，sz命令示例:</p>
+                <pre class="prettyprint"><code>sz /user/data/dashidan.com
+</code></pre>
+                <p>sz命令后边的参数为需要传给windows的文件名.输入回车确认会在windwos中弹出保存目录.保存即可.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/linux/common/6.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/linux/common/8.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

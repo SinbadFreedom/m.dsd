@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>1.PHP中文JSON乱码 - PHP常见问题 - 大屎蛋教程网</title>
+    <meta name="description" content="php5.4以下json_encode方法封装JSON数据时会有乱码,加入header采用utf-8编码.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/php/index.html">php</a> > faq
+        > 1.PHP中文JSON乱码
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/php/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/php/faq/2.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>1.PHP中文JSON乱码</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 加入header采用utf-8编码</a><br><a href="#2">2
+                        修改封装JSON方法</a><br><a href="#3">3 另外一种解决php解析json格式乱码的方式</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>php5.4以下json_encode方法封装JSON数据时会有乱码.</p>
+                </div>
+                <div id="1"><h3>1 加入header采用utf-8编码</h3></div>
+                <p>php的header加入Content-type:text/html;charset=utf-8. 示例代码:</p>
+                <pre class="prettyprint"><code class="php language-php">header("Content-type:text/html;charset=utf-8");
+</code></pre>
+                <div id="2"><h3>2 修改封装JSON方法</h3></div>
+                <p>低于5.4版本采用php自带的json_encode方法没有中文乱码. php5.4版本以下修改php的封装json的方法. 示例代码:</p>
+                <pre class="prettyprint"><code class="php language-php">/**
+* 对变量进行 JSON 编码
+* @param mixed value 待编码的 value ，除了resource 类型之外，可以为任何数据类型，该函数只能接受 UTF-8 编码的数据
+* @return string 返回 value 值的 JSON 形式
+*/
+function json_encode_ex($value)
+{
+    if (version_compare(PHP_VERSION,'5.4.0','&lt;'))
+    {
+        $str = json_encode($value);
+        $str = preg_replace_callback(
+        "#\\\u([0-9a-f]{4})#i",
+        function($matchs)
+        {
+             return iconv('UCS-2BE', 'UTF-8', pack('H4', $matchs[1]));
+        },
+         $str
+        );
+        return $str;
+    }
+    else
+    {
+        return json_encode($value, JSON_UNESCAPED_UNICODE);
+    }
+}
+
+echo json_encode_ex($serverArr);
+</code></pre>
+                <div id="3"><h3>3 另外一种解决php解析json格式乱码的方式</h3></div>
+                <p>升级php到5.5版本以上就可以解决json乱码的问题了.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/php/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/php/faq/2.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

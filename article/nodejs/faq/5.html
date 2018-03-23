@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>linux安装nodejs5.0以上版本及nodejs版本切换</title>
+    <meta name="description" content="linux nvm安装nodejs指定版本步骤及nodejs版本切换">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/nodejs/index.html">nodejs</a> > faq
+        > 5.linux安装nodejs及版本切换
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/nodejs/faq/4.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/nodejs/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/nodejs/faq/6.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>5.linux安装nodejs及版本切换</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 nvm是什么</a><br><a href="#2">2 linux
+                        nvm安装nodejs指定版本步骤</a><br><a href="#2.1">&nbsp;&nbsp;2.1 linux安装nrm切换npm镜像</a><br><a href="#2.2">&nbsp;&nbsp;2.2
+                        下载安装nvm脚本</a><br><a href="#2.3">&nbsp;&nbsp;2.3 执行nvm脚本</a><br><a href="#2.4">&nbsp;&nbsp;2.4
+                        查看nodejs版本</a><br><a href="#2.5">&nbsp;&nbsp;2.5 nvm安装nodejs指定版本</a></div>
+                </div>
+                <div class="jumbotron">
+                    <p>在linux安装nodejs5.0以上的版本时,经常遇到出其不意的报错.可以通过nvm命令安装和切换nodejs脚本.</p>
+                </div>
+                <div id="1"><h3>1 nvm是什么</h3></div>
+                <p>nvm是的github中的一个开源项目, 可以很方便的在linux中安装和切换node的各个版本.<a
+                        href="https://github.com/creationix/nvm">nvm项目链接</a></p>
+                <div id="2"><h3>2 linux nvm安装nodejs指定版本步骤</h3></div>
+                <div id="2.1" class="dsd_title_c_2"><h4>2.1 linux安装nrm切换npm镜像</h4></div>
+                <pre class="prettyprint"><code>npm install -g nrm
+nrm ls
+nrm use taobao
+</code></pre>
+                <div id="2.2" class="dsd_title_c_2"><h4>2.2 下载安装nvm脚本</h4></div>
+                <pre class="prettyprint"><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+</code></pre>
+                <p>或:</p>
+                <pre class="prettyprint"><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+</code></pre>
+                <div id="2.3" class="dsd_title_c_2"><h4>2.3 执行nvm脚本</h4></div>
+                <pre class="prettyprint"><code>source ~/.nvm/nvm.sh
+</code></pre>
+                <div id="2.4" class="dsd_title_c_2"><h4>2.4 查看nodejs版本</h4></div>
+                <ul>
+                    <li>查看nodejs本地已安装nodejs版本</li>
+                </ul>
+                <pre class="prettyprint"><code>nvm ls
+</code></pre>
+                <ul>
+                    <li>查看nodejs远端版本</li>
+                </ul>
+                <pre class="prettyprint"><code>nvm ls-remote
+</code></pre>
+                <div id="2.5" class="dsd_title_c_2"><h4>2.5 nvm安装nodejs指定版本</h4></div>
+                <p>命令格式:</p>
+                <pre class="prettyprint"><code>nvm install 版本号
+</code></pre>
+                <p>以安装nodejs5.0为例, 输入:</p>
+                <pre class="prettyprint"><code>nvm install 5.0
+</code></pre>
+                <p>选择切换nodejs版本:</p>
+                <pre class="prettyprint"><code>nvm use 5.0
+</code></pre>
+                <p>运行指定nodejs版本:</p>
+                <pre class="prettyprint"><code>nvm run 5.0 --version
+</code></pre>
+                <p>在指定nodejs版本环境中运行任意命令:</p>
+                <pre class="prettyprint"><code>nvm exec 4.2 node --version
+</code></pre>
+                <p>查看版本安装路径:</p>
+                <pre class="prettyprint"><code>nvm which 5.04.4
+</code></pre>
+                <div class="bs-callout bs-callout-warning">
+                    <p>在使用过程中发现`source`每次关闭控制台就不管用</p>
+                    <p>解决办法:</p>
+                    <p>修改/etc/profile:</p>
+                    <code>vim /etc/profile</code>
+                    <p>写入:</p>
+                    <code>source ~/.bashrc</code>
+                    <code>source ~/.nvm/nvm.sh</code>
+                </div>
+                <p>完成！nodejs各个版本尽在掌控中.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/nodejs/faq/4.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/nodejs/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/nodejs/faq/6.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

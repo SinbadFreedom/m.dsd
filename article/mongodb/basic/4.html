@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MongoDB命令行 mongo常用命令 - Mongodb中文手册 - 大屎蛋教程网</title>
+    <meta name="description"
+          content="mongodb常用命令.命令行启动MongoDB,mongo显示所有数据库,mongo使用或创建数据库,mongo显示当前使用数据库,mongo插入数据,mongo查找数据,mongo命令输出结果格式化,mongo命令多行模式,mongo命令行退出.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > basic
+        > 4.mongodb命令行简介
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/mongodb/basic/3.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/mongodb/basic/5.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>4.mongodb命令行简介</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 MongoDB命令行简介</a><br><a href="#2">2
+                        启动MongoDB命令行</a><br><a href="#3">3 mongo显示所有数据库</a><br><a href="#4">4 mongo使用或创建数据库</a><br><a
+                            href="#5">5 mongo显示当前使用数据库</a><br><a href="#6">6 mongo插入数据</a><br><a href="#7">7
+                        mongo查找数据</a><br><a href="#8">8 mongo命令输出结果格式化</a><br><a href="#9">9 mongo命令多行模式</a><br><a
+                            href="#10">10 mongo命令行退出</a><br><a href="#11">11 参考文章</a><br><a href="#12">12 相关文章</a></div>
+                </div>
+                <div id="1"><h3>1 MongoDB命令行简介</h3></div>
+                <p>mongo命令行是MongoDB数据库的JavaScript交互接口.可以用这个命令行来对数据库进行增删改查, 性能管理等操作.</p>
+                <p>mongo命令行是MongoDB的一个组件.当你启动MongoDB之后, 可以用命令行连接MongoDB.</p>
+                <div id="2"><h3>2 启动MongoDB命令行</h3></div>
+                <div class="bs-callout bs-callout-warning">
+                    <h4>启动MongoDB命令行前, 需要确保MongoDB已经启动.</h4>
+                </div>
+                <p>进入MongoDB的安装中bin目录.</p>
+                <ul>
+                    <li>windows启动MongoDB命令行</li>
+                </ul>
+                <pre class="prettyprint"><code>执行mongo.exe
+</code></pre>
+                <ul>
+                    <li>linux启动MongoDB命令行</li>
+                </ul>
+                <pre class="prettyprint"><code>./mongo
+</code></pre>
+                <div class="bs-callout bs-callout-warning">
+                    <h4>MongoDB默认IP和端口</h4>
+                    MongoDB默认绑定IP为127.0.0.1, 端口为 27017. 如果没有修改mongo默认配置.执行mongo命令会连127.0.0.1:27017.
+                </div>
+                <div id="3"><h3>3 mongo显示所有数据库</h3></div>
+                <pre class="prettyprint"><code>show dbs;
+</code></pre>
+                <div id="4"><h3>4 mongo使用或创建数据库</h3></div>
+                <p>如果指定数据库不存在, 则创建一个数据库.</p>
+                <pre class="prettyprint"><code>use dashdan_com
+</code></pre>
+                <div id="5"><h3>5 mongo显示当前使用数据库</h3></div>
+                <pre class="prettyprint"><code>db
+</code></pre>
+                <div id="6"><h3>6 mongo插入数据</h3></div>
+                <pre class="prettyprint"><code>use dashdan_com
+db.myCollection.insertOne( { x: 1 } );
+</code></pre>
+                <p>说明:</p>
+                <ul>
+                    <li>db 是当前使用的数据库的索引,这里不要写数据库的名字.就是采用<code>db</code>.</li>
+                    <li>myCollection 数据集的名字.这个可以自定义.</li>
+                </ul>
+                <div id="7"><h3>7 mongo查找数据</h3></div>
+                <pre class="prettyprint"><code>db.myCollection.find();
+</code></pre>
+                <div class="bs-callout bs-callout-success">
+                    <h4>如果数据集的名字中有空格或者特殊字符可以采用db.getCollection()的方式获取.</h4>
+                </div>
+                <p>例:</p>
+                <pre class="prettyprint"><code>db.getCollection("myCollection").find();
+</code></pre>
+                <p>mongo命令行每行最多接收4095个字符数量, 超过这个限制mongo命令会将它缩短.</p>
+                <div id="8"><h3>8 mongo命令输出结果格式化</h3></div>
+                <pre class="prettyprint"><code>db.myCollection.find().pretty()
+</code></pre>
+                <p>还可以通过以下方式设置mongo命令显示结果：</p>
+                <ul>
+                    <li>print() 打印数据, 并不格式化</li>
+                    <li>print(tojson(obj)) 输出JSON格式,同printjson()</li>
+                    <li>printjson() 输出JSON格式,同print(tojson(obj))</li>
+                </ul>
+                <div id="9"><h3>9 mongo命令多行模式</h3></div>
+                <p>在mongo命令行中如果以<code>{</code>,<code>[</code>,<code>(</code>结尾,
+                    则下一行会以<code>...</code>开头,直到遇到与之对应的符号<code>}</code>,<code>]</code>,<code>)</code>.</p>
+                <pre class="prettyprint"><code>    &gt; if ( x &gt; 0 ) {
+... count++;
+... print (x);
+... }
+</code></pre>
+                <p>你也可以连续输入两个空行来结束这个语句.</p>
+                <pre class="prettyprint"><code>&gt; if (x &gt; 0
+...
+...
+&gt;
+</code></pre>
+                <div id="10"><h3>10 mongo命令行退出</h3></div>
+                <p>输入<code>quit()</code>,或者按<code>Ctrl-C</code>.</p>
+                <div id="11"><h3>11 参考文章</h3></div>
+                <p><a href="https://docs.mongodb.com/manual/mongo/">https://docs.mongodb.com/manual/mongo/</a></p>
+                <div id="12"><h3>12 相关文章</h3></div>
+                <p><a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/mongodb/basic/3.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/mongodb/basic/5.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>

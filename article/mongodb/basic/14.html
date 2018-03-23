@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MongoDB查询返回指定字段 - Mongodb中文手册 - 大屎蛋教程网</title>
+    <meta name="description"
+          content="MongoDB查询返回指定字段.mongodb只返回指定字段和_id字段,mongodb查询结果返回不包含指定字段,mongodb查询内嵌文档返回指定字段,mongodb查询返回数组中指定数组对象.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6632e058970afc4f6d1475330c7682cd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://m.dashidan.com/index.html">大屎蛋教程网</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://m.dashidan.com/index.html">首页</a></li>
+            <li><a href="http://m.dashidan.com/about.html">关于</a></li>
+            <li><a href="http://m.dashidan.com/thanks.html">鸣谢</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <script type="text/javascript">
+            /*20:5 创建于 2018/3/24*/
+            var cpro_id = "u3395670";
+        </script>
+        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
+        <a href="http://m.dashidan.com/index.html">首页</a> > <a
+            href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > basic
+        > 14.MongoDB查询返回指定字段
+    </div>
+
+    <div class="single_line">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+            <a href="http://m.dashidan.com/article/mongodb/basic/13.html"> &lt; 上一篇</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+            <a href="http://m.dashidan.com/article/mongodb/basic/15.html"> 下一篇 &gt;</a>
+        </div>
+    </div>
+
+    <div class="dsd_content">
+        <div class="col-12">
+            <article class="dsd_title_1"><h1>14.MongoDB查询返回指定字段</h1></article>
+            <div id="xs_content_border">
+                <div>
+                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 初始化数据</a><br><a href="#2">2
+                        mongodb只返回指定字段和_id字段</a><br><a href="#3">3 mongodb查询结果去掉_id字段</a><br><a href="#4">4
+                        mongodb查询结果返回不包含指定字段</a><br><a href="#5">5 mongodb查询内嵌文档返回指定字段</a><br><a href="#6">6
+                        mongodb查询返回数组中指定数组对象</a><br><a href="#7">7 参考文章</a><br><a href="#8">8 相关文章</a></div>
+                </div>
+                <p>MonoDB查询默认返回文档的全部字段. 你可以指定返回字段.</p>
+                <div id="1"><h3>1 初始化数据</h3></div>
+                <pre class="prettyprint"><code>db.inventory.insertMany( [
+  { item: "journal", status: "A", size: { h: 14, w: 21, uom: "cm" }, instock: [ { warehouse: "A", qty: 5 } ] },
+  { item: "notebook", status: "A",  size: { h: 8.5, w: 11, uom: "in" }, instock: [ { warehouse: "C", qty: 5 } ] },
+  { item: "paper", status: "D", size: { h: 8.5, w: 11, uom: "in" }, instock: [ { warehouse: "A", qty: 60 } ] },
+  { item: "planner", status: "D", size: { h: 22.85, w: 30, uom: "cm" }, instock: [ { warehouse: "A", qty: 40 } ] },
+  { item: "postcard", status: "A", size: { h: 10, w: 15.25, uom: "cm" }, instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+</code></pre>
+                <div id="2"><h3>2 mongodb只返回指定字段和_id字段</h3></div>
+                <p>可以通过将<code>&lt;field&gt;</code>字段设置为1, 来指定返回字段. 默认会返回<code>_id</code>字段.</p>
+                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { item: 1, status: 1 } )
+</code></pre>
+                <p>对应的SQL语句:</p>
+                <pre class="prettyprint"><code>SELECT _id, item, status from inventory WHERE status = "A"
+</code></pre>
+                <div id="3"><h3>3 mongodb查询结果去掉_id字段</h3></div>
+                <p>可以通过将指定<code>&lt;field&gt;</code>字段设置为<code>0</code>, 来排除指定字段.</p>
+                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { item: 1, status: 1, _id: 0 } )
+</code></pre>
+                <p>对应的SQL语句:</p>
+                <pre class="prettyprint"><code>SELECT item, status from inventory WHERE status = "A"
+</code></pre>
+                <div id="4"><h3>4 mongodb查询结果返回不包含指定字段</h3></div>
+                <p>你可以通过设置<code>&lt;field&gt;</code>字段设置为<code>0</code>, 来排除指定字段.</p>
+                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { status: 0, instock: 0 } )
+</code></pre>
+                <p><code>_id</code>字段是个例外, 除了<code>_id</code>字段外, 不同同时指定包含和排除的数据. 只能选择其中一种方式.</p>
+                <div id="5"><h3>5 mongodb查询内嵌文档返回指定字段</h3></div>
+                <p>可以通过<code>.</code>操作符来返回指定字段.</p>
+                <pre class="prettyprint"><code>db.inventory.find(
+   { status: "A" },
+   { "size.uom": 0 }
+)
+</code></pre>
+                <div id="6"><h3>6 mongodb查询返回数组中指定数组对象</h3></div>
+                <p>MongoDB提供了: <code>$elemMatch</code>, <code>$slice</code>, and <code>$</code>. 操作符来返回指定数组数据.</p>
+                <p>以下示例通过<code>$slice</code>操作符返回数组中最后一个数据.</p>
+                <pre class="prettyprint"><code>db.inventory.find( { status: "A" }, { name: 1, status: 1, instock: { $slice: -1 } } )
+</code></pre>
+                <p><code>$elemMatch</code>, <code>$slice</code>, and <code>$</code>这三个操作符是唯一的方式来指定返回数组中的数据,
+                    你不能指定数组索引来返回数组中的数据.例如<code>{ "instock.0": 1 }</code>不会返回数组中的第一个元素.</p>
+                <div id="7"><h3>7 参考文章</h3></div>
+                <p><a href="https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/">https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/</a>
+                </p>
+                <div id="8"><h3>8 相关文章</h3></div>
+                <p><a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<footer class="single_line">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+        <a href="http://m.dashidan.com/article/mongodb/basic/13.html"> &lt; 上一篇</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+        <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+        <a href="http://m.dashidan.com/article/mongodb/basic/15.html"> 下一篇 &gt;</a>
+    </div>
+</footer>
+
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
+</body>
+</html>
