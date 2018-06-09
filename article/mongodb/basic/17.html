@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>MongoDB修改数据 - Mongodb中文手册 - 大屎蛋教程网</title>
-    <meta name="description"
-          content="mongodb修改数据.mongodb修改数据格式,mongodb修改集合中的一条数据,mongodb修改多条文档,mongodb替换数据,mongodb插入操作.">
+    <meta name="description" content="mongodb修改数据.mongodb修改数据格式,mongodb修改集合中的一条数据,mongodb修改多条文档,mongodb替换数据,mongodb插入操作.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -47,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > basic
         > 17.MongoDB修改数据
@@ -60,13 +53,13 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/mongodb/basic/16.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/mongodb/basic/16.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="http://m.dashidan.com/article/mongodb/basic/18.html"> 下一篇 &gt;</a>
+                <a href="http://m.dashidan.com/article/mongodb/basic/18.html"> 下一篇 &gt;</a>
         </div>
     </div>
 
@@ -74,21 +67,13 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>17.MongoDB修改数据</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 MongoDB修改操作</a><br><a href="#2">2 初始化数据</a><br><a
-                            href="#3">3 MongoDB修改数据格式</a><br><a href="#4">4 MongoDB修改集合中的一条数据</a><br><a href="#5">5
-                        修改多条文档</a><br><a href="#6">6 MongoDB替换数据</a><br><a href="#7">7 修改行为</a><br><a href="#7.1">&nbsp;&nbsp;7.1
-                        MongoDB修改的原子性</a><br><a href="#7.2">&nbsp;&nbsp;7.2 MongoDBz的_id字段</a><br><a href="#7.3">&nbsp;&nbsp;7.3
-                        文档数据大小</a><br><a href="#7.4">&nbsp;&nbsp;7.4 字段顺序</a><br><a href="#8">8 MongoDB插入操作</a><br><a
-                            href="#9">9 MongoDB写回执</a><br><a href="#10">10 参考文章</a><br><a href="#11">11 相关文章</a></div>
-                </div>
-                <div id="1"><h3>1 MongoDB修改操作</h3></div>
-                <pre class="prettyprint"><code>db.collection.updateOne(&lt;filter&gt;, &lt;update&gt;, &lt;options&gt;)
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 MongoDB修改操作</a><br><a href="#2">2 初始化数据</a><br><a href="#3">3 MongoDB修改数据格式</a><br><a href="#4">4 MongoDB修改集合中的一条数据</a><br><a href="#5">5 修改多条文档</a><br><a href="#6">6 MongoDB替换数据</a><br><a href="#7">7 修改行为</a><br><a href="#7.1">&nbsp;&nbsp;7.1 MongoDB修改的原子性</a><br><a href="#7.2">&nbsp;&nbsp;7.2 MongoDBz的_id字段</a><br><a href="#7.3">&nbsp;&nbsp;7.3 文档数据大小</a><br><a href="#7.4">&nbsp;&nbsp;7.4 字段顺序</a><br><a href="#8">8 MongoDB插入操作</a><br><a href="#9">9 MongoDB写回执</a><br><a href="#10">10 参考文章</a><br><a href="#11">11 相关文章</a></div></div><div id="1"><h3>1 MongoDB修改操作</h3></div>
+<pre class="prettyprint"><code>db.collection.updateOne(&lt;filter&gt;, &lt;update&gt;, &lt;options&gt;)
 db.collection.updateMany(&lt;filter&gt;, &lt;update&gt;, &lt;options&gt;)
 db.collection.replaceOne(&lt;filter&gt;, &lt;replacement&gt;, &lt;options&gt;)
 </code></pre>
-                <div id="2"><h3>2 初始化数据</h3></div>
-                <pre class="prettyprint"><code>db.inventory.insertMany( [
+<div id="2"><h3>2 初始化数据</h3></div>
+<pre class="prettyprint"><code>db.inventory.insertMany( [
    { item: "canvas", qty: 100, size: { h: 28, w: 35.5, uom: "cm" }, status: "A" },
    { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
    { item: "mat", qty: 85, size: { h: 27.9, w: 35.5, uom: "cm" }, status: "A" },
@@ -101,21 +86,18 @@ db.collection.replaceOne(&lt;filter&gt;, &lt;replacement&gt;, &lt;options&gt;)
    { item: "sketch pad", qty: 95, size: { h: 22.85, w: 30.5, uom: "cm" }, status: "A" }
 ]);
 </code></pre>
-                <div id="3"><h3>3 MongoDB修改数据格式</h3></div>
-                <p>MongoDB中可以通过<a href="https://docs.mongodb.com/manual/reference/operator/update">update operters</a>,
-                    例如: <code>$set</code>等, 来修改数据.</p>
-                <p>MongoDB的update修改格式:</p>
-                <pre class="prettyprint"><code>{
+<div id="3"><h3>3 MongoDB修改数据格式</h3></div>
+<p>MongoDB中可以通过<a href="https://docs.mongodb.com/manual/reference/operator/update">update operters</a>, 例如: <code>$set</code>等, 来修改数据.</p>
+<p>MongoDB的update修改格式:</p>
+<pre class="prettyprint"><code>{
   &lt;update operator&gt;: { &lt;field1&gt;: &lt;value1&gt;, ... },
   &lt;update operator&gt;: { &lt;field2&gt;: &lt;value2&gt;, ... },
   ...
 }
 </code></pre>
-                <div id="4"><h3>4 MongoDB修改集合中的一条数据</h3></div>
-                <p>
-                    以下例子通过<code>db.collection.updateOne()</code>方法来修改<code>inventory</code>集合中第一条满足<code>item</code>值等于<code>paper</code>的数据.
-                </p>
-                <pre class="prettyprint"><code>db.inventory.updateOne(
+<div id="4"><h3>4 MongoDB修改集合中的一条数据</h3></div>
+<p>以下例子通过<code>db.collection.updateOne()</code>方法来修改<code>inventory</code>集合中第一条满足<code>item</code>值等于<code>paper</code>的数据.</p>
+<pre class="prettyprint"><code>db.inventory.updateOne(
    { item: "paper" },
    {
      $set: { "size.uom": "cm", status: "P" },
@@ -123,17 +105,15 @@ db.collection.replaceOne(&lt;filter&gt;, &lt;replacement&gt;, &lt;options&gt;)
    }
 )
 </code></pre>
-                <p>MongoDB update操作介绍:</p>
-                <ul>
-                    <li>$set操作符来修改size.uom字段为cm, 并且将status改为P.</li>
-                    <li>$currentDate操作符修改lastModified字段值为当前时间. 如果lastModified字段不存在, 将会自动创建一个.</li>
-                </ul>
-                <div id="5"><h3>5 修改多条文档</h3></div>
-                <p>3.2版本新特性</p>
-                <p>
-                    以下示例使用<code>db.collection.updateMany()</code>方法来修改<code>inventory</code>集合中<code>qty</code>小于<code>50</code>的全部文档.
-                </p>
-                <pre class="prettyprint"><code>db.inventory.updateMany(
+<p>MongoDB update操作介绍:</p>
+<ul>
+<li>$set操作符来修改size.uom字段为cm, 并且将status改为P.</li>
+<li>$currentDate操作符修改lastModified字段值为当前时间. 如果lastModified字段不存在, 将会自动创建一个.</li>
+</ul>
+<div id="5"><h3>5 修改多条文档</h3></div>
+<p>3.2版本新特性</p>
+<p>以下示例使用<code>db.collection.updateMany()</code>方法来修改<code>inventory</code>集合中<code>qty</code>小于<code>50</code>的全部文档.</p>
+<pre class="prettyprint"><code>db.inventory.updateMany(
    { "qty": { $lt: 50 } },
    {
      $set: { "size.uom": "in", status: "P" },
@@ -141,40 +121,37 @@ db.collection.replaceOne(&lt;filter&gt;, &lt;replacement&gt;, &lt;options&gt;)
    }
 )
 </code></pre>
-                <div id="6"><h3>6 MongoDB替换数据</h3></div>
-                <p>通过db.collection.replaceOne()方法来替换除_id字段外其余的值. 第二个参数为新的文档数据.执行替换操作时, 需要替换的文档数据中只能包括键值对,
-                    不能包含修改操作符.替换文档数据数据格式可以和以前不一样. 可以省略<code>_id</code>字段，因为这个字段值是不可修改的. 如果包含这个值需要和以前的值一样.</p>
-                <p>替换代码示例:</p>
-                <pre class="prettyprint"><code>db.inventory.replaceOne(
+<div id="6"><h3>6 MongoDB替换数据</h3></div>
+<p>通过db.collection.replaceOne()方法来替换除_id字段外其余的值. 第二个参数为新的文档数据.执行替换操作时, 需要替换的文档数据中只能包括键值对, 不能包含修改操作符.替换文档数据数据格式可以和以前不一样. 可以省略<code>_id</code>字段，因为这个字段值是不可修改的. 如果包含这个值需要和以前的值一样.</p>
+<p>替换代码示例:</p>
+<pre class="prettyprint"><code>db.inventory.replaceOne(
    { item: "paper" },
    { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 40 } ] }
 )
 </code></pre>
-                <div id="7"><h3>7 修改行为</h3></div>
-                <div id="7.1" class="dsd_title_c_2"><h4>7.1 MongoDB修改的原子性</h4></div>
-                <p>MongoDB中所有写的操作都是文档级的原子性.</p>
-                <div id="7.2" class="dsd_title_c_2"><h4>7.2 MongoDBz的_id字段</h4></div>
-                <p>_id字段一旦设定无法修改, 也不能通过替换方法修改.</p>
-                <div id="7.3" class="dsd_title_c_2"><h4>7.3 文档数据大小</h4></div>
-                <p>当执行<code>update</code>操作时文档数据大小超过给那个分配的大小时, 会将这个文档重新定位到硬盘中.</p>
-                <div id="7.4" class="dsd_title_c_2"><h4>7.4 字段顺序</h4></div>
-                <p>MongoDB执行写的操作时保留文档中的字段顺序, 除了以下例外:</p>
-                <ul>
-                    <li>_id字段始终是第一个</li>
-                    <li>更新已有字段数据, 会导致字段重新排序</li>
-                </ul>
-                <p>MonogoDB2.6修改.
-                    Mongodb2.6之前不能主动保持字段在文档数据中的数据.</p>
-                <div id="8"><h3>8 MongoDB插入操作</h3></div>
-                <p>updateOne(), updateMany(), 和replaceOne()这几个操作如果包含了"upsert : true"时, 如果没有满足指定条件的文档存在, 则自动插入新的数据.</p>
-                <div id="9"><h3>9 MongoDB写回执</h3></div>
-                <p>你可以自定义Mongodb写操作的回执等级. 详情查阅<a href="https://docs.mongodb.com/manual/reference/write-concern/">Write
-                    Concern</a>.</p>
-                <div id="10"><h3>10 参考文章</h3></div>
-                <p><a href="https://docs.mongodb.com/manual/tutorial/update-documents/">https://docs.mongodb.com/manual/tutorial/update-documents/</a>
-                </p>
-                <div id="11"><h3>11 相关文章</h3></div>
-                <p><a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+<div id="7"><h3>7 修改行为</h3></div>
+<div id="7.1"class="dsd_title_c_2"><h4>7.1 MongoDB修改的原子性</h4></div>
+<p>MongoDB中所有写的操作都是文档级的原子性.</p>
+<div id="7.2"class="dsd_title_c_2"><h4>7.2 MongoDBz的_id字段</h4></div>
+<p>_id字段一旦设定无法修改, 也不能通过替换方法修改.</p>
+<div id="7.3"class="dsd_title_c_2"><h4>7.3 文档数据大小</h4></div>
+<p>当执行<code>update</code>操作时文档数据大小超过给那个分配的大小时, 会将这个文档重新定位到硬盘中.</p>
+<div id="7.4"class="dsd_title_c_2"><h4>7.4 字段顺序</h4></div>
+<p>MongoDB执行写的操作时保留文档中的字段顺序, 除了以下例外:</p>
+<ul>
+<li>_id字段始终是第一个</li>
+<li>更新已有字段数据, 会导致字段重新排序</li>
+</ul>
+<p>MonogoDB2.6修改.
+Mongodb2.6之前不能主动保持字段在文档数据中的数据.</p>
+<div id="8"><h3>8 MongoDB插入操作</h3></div>
+<p>updateOne(), updateMany(), 和replaceOne()这几个操作如果包含了"upsert : true"时, 如果没有满足指定条件的文档存在, 则自动插入新的数据.</p>
+<div id="9"><h3>9 MongoDB写回执</h3></div>
+<p>你可以自定义Mongodb写操作的回执等级. 详情查阅<a href="https://docs.mongodb.com/manual/reference/write-concern/">Write Concern</a>.</p>
+<div id="10"><h3>10 参考文章</h3></div>
+<p><a href="https://docs.mongodb.com/manual/tutorial/update-documents/">https://docs.mongodb.com/manual/tutorial/update-documents/</a></p>
+<div id="11"><h3>11 相关文章</h3></div>
+<p><a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
             </div>
         </div>
     </div>
@@ -184,20 +161,20 @@ db.collection.replaceOne(&lt;filter&gt;, &lt;replacement&gt;, &lt;options&gt;)
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/mongodb/basic/16.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/mongodb/basic/16.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="http://m.dashidan.com/article/mongodb/basic/18.html"> 下一篇 &gt;</a>
+            <a href="http://m.dashidan.com/article/mongodb/basic/18.html"> 下一篇 &gt;</a>
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Mongodb配置及常用命令 - Mongodb中文手册 - 大屎蛋教程网</title>
-    <meta name="description"
-          content="Mongodb配置及常用命令.修改mongodb的绑定IP和端口,修改启动报错,连接mongodb,单个collection备份,单个collection恢复.等mongodb常用命令.">
+    <meta name="description" content="Mongodb配置及常用命令.修改mongodb的绑定IP和端口,修改启动报错,连接mongodb,单个collection备份,单个collection恢复.等mongodb常用命令.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -47,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > addenda
         > 3.Mongodb配置及常用命令
@@ -60,7 +53,7 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/mongodb/addenda/2.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/mongodb/addenda/2.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
@@ -73,26 +66,14 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>3.Mongodb配置及常用命令</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 修改mongodb的绑定IP和端口</a><br><a href="#2">2
-                        mongodb修改启动报错</a><br><a href="#3">3 连接mongodb</a><br><a href="#4">4 mongodb常用命令</a><br><a
-                            href="#4.1">&nbsp;&nbsp;4.1 mongodb查看所有数据库show dbs</a><br><a href="#4.2">&nbsp;&nbsp;4.2
-                        mongodb选择数据库use db_name</a><br><a href="#4.3">&nbsp;&nbsp;4.3 mongodb查看当前数据库下所有集合show
-                        collections</a><br><a href="#4.4">&nbsp;&nbsp;4.4 mongodb查看帮助文档help</a><br><a href="#4.5">&nbsp;&nbsp;4.5
-                        mongodb在数据库级别查看帮助信息</a><br><a href="#4.6">&nbsp;&nbsp;4.6 在集合级别查看帮助信息help</a><br><a href="#4.7">&nbsp;&nbsp;4.7
-                        mongodb删除集合drop</a><br><a href="#4.8">&nbsp;&nbsp;4.8 mongodb删除数据库dropDatabase</a><br><a
-                            href="#5">5 mongodb数据库备份mongodump</a><br><a href="#6">6 mongodb整库恢复mongorestore</a><br><a
-                            href="#7">7 mongodb单个collection备份mongoexport</a><br><a href="#8">8
-                        mongodb单个collection恢复mongoimport</a></div>
-                </div>
-                <div id="1"><h3>1 修改mongodb的绑定IP和端口</h3></div>
-                <p>修改<code>mongo.conf</code>文件中的bindIp和port</p>
-                <pre class="prettyprint"><code>net:
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 修改mongodb的绑定IP和端口</a><br><a href="#2">2 mongodb修改启动报错</a><br><a href="#3">3 连接mongodb</a><br><a href="#4">4 mongodb常用命令</a><br><a href="#4.1">&nbsp;&nbsp;4.1 mongodb查看所有数据库show dbs</a><br><a href="#4.2">&nbsp;&nbsp;4.2 mongodb选择数据库use db_name</a><br><a href="#4.3">&nbsp;&nbsp;4.3 mongodb查看当前数据库下所有集合show collections</a><br><a href="#4.4">&nbsp;&nbsp;4.4 mongodb查看帮助文档help</a><br><a href="#4.5">&nbsp;&nbsp;4.5 mongodb在数据库级别查看帮助信息</a><br><a href="#4.6">&nbsp;&nbsp;4.6 在集合级别查看帮助信息help</a><br><a href="#4.7">&nbsp;&nbsp;4.7 mongodb删除集合drop</a><br><a href="#4.8">&nbsp;&nbsp;4.8 mongodb删除数据库dropDatabase</a><br><a href="#5">5 mongodb数据库备份mongodump</a><br><a href="#6">6 mongodb整库恢复mongorestore</a><br><a href="#7">7 mongodb单个collection备份mongoexport</a><br><a href="#8">8 mongodb单个collection恢复mongoimport</a></div></div><div id="1"><h3>1 修改mongodb的绑定IP和端口</h3></div>
+<p>修改<code>mongo.conf</code>文件中的bindIp和port</p>
+<pre class="prettyprint"><code>net:
 port: 37017
 bindIp: 127.0.0.1  # Listen to local interface only, comment to listen on all interfaces.
 </code></pre>
-                <div id="2"><h3>2 mongodb修改启动报错</h3></div>
-                <pre class="prettyprint"><code>** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+<div id="2"><h3>2 mongodb修改启动报错</h3></div>
+<pre class="prettyprint"><code>** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
 **        We suggest setting it to 'never'
 ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
 **        We suggest setting it to 'never'
@@ -100,78 +81,76 @@ bindIp: 127.0.0.1  # Listen to local interface only, comment to listen on all in
 sudo echo "never" &gt; /sys/kernel/mm/transparent_hugepage/enabled
 sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 </code></pre>
-                <div id="3"><h3>3 连接mongodb</h3></div>
-                <pre class="prettyprint"><code>mongo 127.0.0.1:37017
+<div id="3"><h3>3 连接mongodb</h3></div>
+<pre class="prettyprint"><code>mongo 127.0.0.1:37017
 </code></pre>
-                <div id="4"><h3>4 mongodb常用命令</h3></div>
-                <div id="4.1" class="dsd_title_c_2"><h4>4.1 mongodb查看所有数据库show dbs</h4></div>
-                <pre class="prettyprint"><code>show dbs;
+<div id="4"><h3>4 mongodb常用命令</h3></div>
+<div id="4.1"class="dsd_title_c_2"><h4>4.1 mongodb查看所有数据库show dbs</h4></div>
+<pre class="prettyprint"><code>show dbs;
 </code></pre>
-                <div id="4.2" class="dsd_title_c_2"><h4>4.2 mongodb选择数据库use db_name</h4></div>
-                <pre class="prettyprint"><code>use db_name;
+<div id="4.2"class="dsd_title_c_2"><h4>4.2 mongodb选择数据库use db_name</h4></div>
+<pre class="prettyprint"><code>use db_name;
 </code></pre>
-                <div id="4.3" class="dsd_title_c_2"><h4>4.3 mongodb查看当前数据库下所有集合show collections</h4></div>
-                <pre class="prettyprint"><code>show collections;
+<div id="4.3"class="dsd_title_c_2"><h4>4.3 mongodb查看当前数据库下所有集合show collections</h4></div>
+<pre class="prettyprint"><code>show collections;
 </code></pre>
-                <div id="4.4" class="dsd_title_c_2"><h4>4.4 mongodb查看帮助文档help</h4></div>
-                <pre class="prettyprint"><code>help;
+<div id="4.4"class="dsd_title_c_2"><h4>4.4 mongodb查看帮助文档help</h4></div>
+<pre class="prettyprint"><code>help;
 </code></pre>
-                <div id="4.5" class="dsd_title_c_2"><h4>4.5 mongodb在数据库级别查看帮助信息</h4></div>
-                <pre class="prettyprint"><code>db.help();
+<div id="4.5"class="dsd_title_c_2"><h4>4.5 mongodb在数据库级别查看帮助信息</h4></div>
+<pre class="prettyprint"><code>db.help();
 </code></pre>
-                <div id="4.6" class="dsd_title_c_2"><h4>4.6 在集合级别查看帮助信息help</h4></div>
-                <pre class="prettyprint"><code>db.collection_name.help();
+<div id="4.6"class="dsd_title_c_2"><h4>4.6 在集合级别查看帮助信息help</h4></div>
+<pre class="prettyprint"><code>db.collection_name.help();
 </code></pre>
-                <div id="4.7" class="dsd_title_c_2"><h4>4.7 mongodb删除集合drop</h4></div>
-                <pre class="prettyprint"><code>db.collection_name.drop();
+<div id="4.7"class="dsd_title_c_2"><h4>4.7 mongodb删除集合drop</h4></div>
+<pre class="prettyprint"><code>db.collection_name.drop();
 </code></pre>
-                <div id="4.8" class="dsd_title_c_2"><h4>4.8 mongodb删除数据库dropDatabase</h4></div>
-                <pre class="prettyprint"><code>db.dropDatabase();
+<div id="4.8"class="dsd_title_c_2"><h4>4.8 mongodb删除数据库dropDatabase</h4></div>
+<pre class="prettyprint"><code>db.dropDatabase();
 </code></pre>
-                <div id="5"><h3>5 mongodb数据库备份mongodump</h3></div>
-                <p>命令:</p>
-                <pre class="prettyprint"><code>mongodump -h dbhost -d dbname -o dbdirectory
+<div id="5"><h3>5 mongodb数据库备份mongodump</h3></div>
+<p>命令:</p>
+<pre class="prettyprint"><code>mongodump -h dbhost -d dbname -o dbdirectory
 </code></pre>
-                <p>参数说明:</p>
-                <ul>
-                    <li>-h:MongDB所在服务器地址,例如:127.0.0.1,当然也可以指定端口号:127.0.0.1:27017</li>
-                    <li>-d:需要备份的数据库实例,例如:test
-                        -o:备份的数据存放位置,例如:c:\data\dump,当然该目录需要提前建立,在备份完成后,统自动在dump目录下建立一个test目录,这个目录里面存放该数据库实例的备份数据
-                    </li>
-                </ul>
-                <div id="6"><h3>6 mongodb整库恢复mongorestore</h3></div>
-                <p>命令:</p>
-                <pre class="prettyprint"><code>mongorestore -h dbhost -d dbname –directoryperdb dbdirectory
+<p>参数说明:</p>
+<ul>
+<li>-h:MongDB所在服务器地址,例如:127.0.0.1,当然也可以指定端口号:127.0.0.1:27017</li>
+<li>-d:需要备份的数据库实例,例如:test    -o:备份的数据存放位置,例如:c:\data\dump,当然该目录需要提前建立,在备份完成后,统自动在dump目录下建立一个test目录,这个目录里面存放该数据库实例的备份数据</li>
+</ul>
+<div id="6"><h3>6 mongodb整库恢复mongorestore</h3></div>
+<p>命令:</p>
+<pre class="prettyprint"><code>mongorestore -h dbhost -d dbname –directoryperdb dbdirectory
 </code></pre>
-                <p>参数说明:</p>
-                <ul>
-                    <li>-h:MongoDB所在服务器地址</li>
-                    <li>-d:需要恢复的数据库实例,例如:test,当然这个名称也可以和备份时候的不一样,比如test2</li>
-                    <li>–directoryperdb:备份数据所在位置,例如:c:\data\dump\test,这里为什么要多加一个test,而不是备份时候的dump</li>
-                    <li>–drop:恢复的时候,先删除当前数据,然后恢复备份的数据。就是说,恢复后,备份后添加修改的数据都会被删除,慎用哦！</li>
-                </ul>
-                <div id="7"><h3>7 mongodb单个collection备份mongoexport</h3></div>
-                <p>命令:</p>
-                <pre class="prettyprint"><code>mongoexport -h dbhost -d dbname -c collectionname -f collectionKey -o dbdirectory
+<p>参数说明:</p>
+<ul>
+<li>-h:MongoDB所在服务器地址</li>
+<li>-d:需要恢复的数据库实例,例如:test,当然这个名称也可以和备份时候的不一样,比如test2</li>
+<li>–directoryperdb:备份数据所在位置,例如:c:\data\dump\test,这里为什么要多加一个test,而不是备份时候的dump</li>
+<li>–drop:恢复的时候,先删除当前数据,然后恢复备份的数据。就是说,恢复后,备份后添加修改的数据都会被删除,慎用哦！</li>
+</ul>
+<div id="7"><h3>7 mongodb单个collection备份mongoexport</h3></div>
+<p>命令:</p>
+<pre class="prettyprint"><code>mongoexport -h dbhost -d dbname -c collectionname -f collectionKey -o dbdirectory
 </code></pre>
-                <p>参数说明:</p>
-                <ul>
-                    <li>-h: MongoDB所在服务器地址</li>
-                    <li>-d: 需要恢复的数据库实例</li>
-                    <li>-c: 需要恢复的集合</li>
-                    <li>-f: 需要导出的字段(省略为所有字段)</li>
-                    <li>-o: 表示导出的文件名</li>
-                </ul>
-                <div id="8"><h3>8 mongodb单个collection恢复mongoimport</h3></div>
-                <p>命令:</p>
-                <pre class="prettyprint"><code>mongoimport -d dbhost -c collectionname –type csv –headerline –file
+<p>参数说明:</p>
+<ul>
+<li>-h: MongoDB所在服务器地址</li>
+<li>-d: 需要恢复的数据库实例</li>
+<li>-c: 需要恢复的集合</li>
+<li>-f: 需要导出的字段(省略为所有字段)</li>
+<li>-o: 表示导出的文件名</li>
+</ul>
+<div id="8"><h3>8 mongodb单个collection恢复mongoimport</h3></div>
+<p>命令:</p>
+<pre class="prettyprint"><code>mongoimport -d dbhost -c collectionname –type csv –headerline –file
 </code></pre>
-                <p>参数说明:</p>
-                <ul>
-                    <li>type: 指明要导入的文件格式</li>
-                    <li>headerline: 批明不导入第一行,因为第一行是列名</li>
-                    <li>file: 指明要导入的文件路径</li>
-                </ul>
+<p>参数说明:</p>
+<ul>
+<li>type: 指明要导入的文件格式</li>
+<li>headerline: 批明不导入第一行,因为第一行是列名</li>
+<li>file: 指明要导入的文件路径</li>
+</ul>
             </div>
         </div>
     </div>
@@ -181,7 +160,7 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/mongodb/addenda/2.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/mongodb/addenda/2.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
@@ -190,10 +169,10 @@ sudo echo "never" &gt;  /sys/kernel/mm/transparent_hugepage/defrag
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

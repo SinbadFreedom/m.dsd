@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -46,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/html/index.html">html</a> > faq
         > 6.html设置不缓存页面
@@ -59,13 +53,13 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/html/faq/5.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/html/faq/5.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/html/index.html">目录</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="http://m.dashidan.com/article/html/faq/7.html"> 下一篇 &gt;</a>
+                <a href="http://m.dashidan.com/article/html/faq/7.html"> 下一篇 &gt;</a>
         </div>
     </div>
 
@@ -73,37 +67,30 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>6.html设置不缓存页面</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 影响页面刷新的问题</a><br><a href="#2">2
-                        HTML通过meta设置网页不缓存</a><br><a href="#3">3 HTTP1.0设置页面缓存</a><br><a href="#4">4 HTTP1.1设置页面缓存</a>
-                    </div>
-                </div>
-                <div class="jumbotron">
-                    <p>网站能容发布后,经常发现自己访问网页时不更新.是因为浏览器会有缓存机制.可以通过设置页面缓存的方式,让页面每次打开都是最新的.</p>
-                </div>
-                <div id="1"><h3>1 影响页面刷新的问题</h3></div>
-                <p>几个地方的可能控制HTML的缓存信息包括:浏览器端, 中间缓存服务器端(如:squid等), Web服务器端, HTML缓存设置.本文主要针对HTML的缓存设置.</p>
-                <div id="2"><h3>2 HTML通过meta设置网页不缓存</h3></div>
-                <pre class="prettyprint"><code class="html language-html">&lt;meta http-equiv="Expires" content="0"&gt;
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 影响页面刷新的问题</a><br><a href="#2">2 HTML通过meta设置网页不缓存</a><br><a href="#3">3 HTTP1.0设置页面缓存</a><br><a href="#4">4 HTTP1.1设置页面缓存</a></div></div><div class="jumbotron">
+    <p>网站能容发布后,经常发现自己访问网页时不更新.是因为浏览器会有缓存机制.可以通过设置页面缓存的方式,让页面每次打开都是最新的.</p>  
+</div>
+<div id="1"><h3>1 影响页面刷新的问题</h3></div>
+<p>几个地方的可能控制HTML的缓存信息包括:浏览器端, 中间缓存服务器端(如:squid等), Web服务器端, HTML缓存设置.本文主要针对HTML的缓存设置.</p>
+<div id="2"><h3>2 HTML通过meta设置网页不缓存</h3></div>
+<pre class="prettyprint"><code class="html language-html">&lt;meta http-equiv="Expires" content="0"&gt;
 &lt;meta http-equiv="Pragma" content="no-cache"&gt;
 &lt;meta http-equiv="Cache-control" content="no-cache"&gt;
 &lt;meta http-equiv="Cache" content="no-cache"&gt;
 </code></pre>
-                <p>HTTP协议中关于缓存的信息头关键字包括Cache-Control(HTTP1.1),Pragma(HTTP1.0),last-Modified,Expires等.</p>
-                <div id="3"><h3>3 HTTP1.0设置页面缓存</h3></div>
-                <p>
-                    HTTP1.0中通过Pragma控制页面缓存.可以设置:Pragma或no-cache.通常设置的值为no-cache,不过这个值不保险,通常还加上Expires置为0来达到目的.但是如我们刻意需要浏览器或缓存服务器缓存住我们的页面这个值则要设置为
-                    Pragma.</p>
-                <div id="4"><h3>4 HTTP1.1设置页面缓存</h3></div>
-                <p>HTTP1.1中启用Cache-Control来控制页面是否缓存,常用参数:</p>
-                <ul>
-                    <li>no-cache,浏览器和缓存服务器都不应该缓存页面信息.</li>
-                    <li>public,浏览器和缓存服务器都可以缓存页面信息.</li>
-                    <li>no-store,请求和响应的信息都不应该被存储在对方的磁盘系统中.</li>
-                    <li>must-revalidate,对于客户机的每次请求,代理服务器必须想服务器验证缓存是否过时.</li>
-                    <li>Last-Modified只页面的最后生成时间,GMT格式.</li>
-                    <li>Expires过时期限值,GMT格式,指浏览器或缓存服务器在该时间点后必须从真正的服务器中获取新的页面信息.</li>
-                </ul>
+<p>HTTP协议中关于缓存的信息头关键字包括Cache-Control(HTTP1.1),Pragma(HTTP1.0),last-Modified,Expires等.</p>
+<div id="3"><h3>3 HTTP1.0设置页面缓存</h3></div>
+<p>HTTP1.0中通过Pragma控制页面缓存.可以设置:Pragma或no-cache.通常设置的值为no-cache,不过这个值不保险,通常还加上Expires置为0来达到目的.但是如我们刻意需要浏览器或缓存服务器缓存住我们的页面这个值则要设置为 Pragma.</p>
+<div id="4"><h3>4 HTTP1.1设置页面缓存</h3></div>
+<p>HTTP1.1中启用Cache-Control来控制页面是否缓存,常用参数:</p>
+<ul>
+<li>no-cache,浏览器和缓存服务器都不应该缓存页面信息.</li>
+<li>public,浏览器和缓存服务器都可以缓存页面信息.</li>
+<li>no-store,请求和响应的信息都不应该被存储在对方的磁盘系统中.</li>
+<li>must-revalidate,对于客户机的每次请求,代理服务器必须想服务器验证缓存是否过时.</li>
+<li>Last-Modified只页面的最后生成时间,GMT格式.</li>
+<li>Expires过时期限值,GMT格式,指浏览器或缓存服务器在该时间点后必须从真正的服务器中获取新的页面信息.</li>
+</ul>
             </div>
         </div>
     </div>
@@ -113,20 +100,20 @@
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/html/faq/5.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/html/faq/5.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/html/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="http://m.dashidan.com/article/html/faq/7.html"> 下一篇 &gt;</a>
+            <a href="http://m.dashidan.com/article/html/faq/7.html"> 下一篇 &gt;</a>
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -46,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/linux/index.html">linux</a> > tmux
         > 3.tmux常用命令及快捷键
@@ -59,7 +53,7 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/linux/tmux/2.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/linux/tmux/2.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
@@ -72,32 +66,29 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>3.tmux常用命令及快捷键</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 tmux常用命令</a><br><a href="#2">2 tmux快捷键</a></div>
-                </div>
-                <div class="jumbotron">
-                    <p>在linux系统中,tmux是一个常用的分屏工具.在实际工作过程中更多的通过tmux来创建个多后台进程,来更方便的管理多个同时运行的后台进程.</p>
-                </div>
-                <div id="1"><h3>1 tmux常用命令</h3></div>
-                <h3>显示已有tmux会话</h3>
-                <pre class="prettyprint"><code>tmux ls
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 tmux常用命令</a><br><a href="#2">2 tmux快捷键</a></div></div><div class="jumbotron">
+<p>在linux系统中,tmux是一个常用的分屏工具.在实际工作过程中更多的通过tmux来创建个多后台进程,来更方便的管理多个同时运行的后台进程.</p>  
+</div>
+<div id="1"><h3>1 tmux常用命令</h3></div>
+<h3>显示已有tmux会话</h3>
+<pre class="prettyprint"><code>tmux ls
 </code></pre>
-                <h3>选择tmux进入</h3>
-                <pre class="prettyprint"><code>tmux attach-session -t 数字
+<h3>选择tmux进入</h3>
+<pre class="prettyprint"><code>tmux attach-session -t 数字
 </code></pre>
-                <h3>创建新的tmux窗口</h3>
-                <pre class="prettyprint"><code>tmux new-session -s session-name
+<h3>创建新的tmux窗口</h3>
+<pre class="prettyprint"><code>tmux new-session -s session-name
 </code></pre>
-                <h3>删除tmux窗口</h3>
-                <pre class="prettyprint"><code>tmux kill-session -t session-name
+<h3>删除tmux窗口</h3>
+<pre class="prettyprint"><code>tmux kill-session -t session-name
 </code></pre>
-                <h3>退出tmux窗口</h3>
-                <p>返回主shell, tmux依旧在后台运行,里面的命令也保持运行状态</p>
-                <pre class="prettyprint"><code>Ctrl + b 再按 d
+<h3>退出tmux窗口</h3>
+<p>返回主shell, tmux依旧在后台运行,里面的命令也保持运行状态</p>
+<pre class="prettyprint"><code>Ctrl + b 再按 d
 </code></pre>
-                <div id="2"><h3>2 tmux快捷键</h3></div>
-                <p>tmux 快捷键通过<code>Ctrl + b</code>来调用.</p>
-                <pre class="prettyprint"><code>Ctrl + b ?  // 显示快捷键帮助
+<div id="2"><h3>2 tmux快捷键</h3></div>
+<p>tmux 快捷键通过<code>Ctrl + b</code>来调用.</p>
+<pre class="prettyprint"><code>Ctrl + b ?  // 显示快捷键帮助   
 Ctrl + b Ctrl + o  //调换窗口位置   
 Ctrl + b 空格键  //采用下一个内置布局   
 Ctrl + b ! // 把当前窗口变为新窗口   
@@ -130,7 +121,7 @@ Ctrl + b ,　给当前窗口改名
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/linux/tmux/2.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/linux/tmux/2.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
@@ -139,10 +130,10 @@ Ctrl + b ,　给当前窗口改名
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

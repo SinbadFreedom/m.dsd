@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -46,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/nodejs/index.html">nodejs</a> > faq
         > 4.npm install --save与--save-dev的区别
@@ -59,13 +53,13 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/nodejs/faq/3.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/nodejs/faq/3.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/nodejs/index.html">目录</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="http://m.dashidan.com/article/nodejs/faq/5.html"> 下一篇 &gt;</a>
+                <a href="http://m.dashidan.com/article/nodejs/faq/5.html"> 下一篇 &gt;</a>
         </div>
     </div>
 
@@ -73,35 +67,28 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>4.npm install --save与--save-dev的区别</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 npm install不带--save和--save-dev参数</a><br><a
-                            href="#2">2 npm install --save</a><br><a href="#3">3 npm install --save-dev</a><br><a
-                            href="#4">4 npm install --save和--save-dev参数使用原则</a></div>
-                </div>
-                <div id="1"><h3>1 npm install不带--save和--save-dev参数</h3></div>
-                <ul>
-                    <li>把模块安装到当前目录node_modules目录中.</li>
-                    <li>不修改package.json.</li>
-                    <li>之后运行npm install命令时,不会自动安装这个模块.</li>
-                </ul>
-                <div id="2"><h3>2 npm install --save</h3></div>
-                <ul>
-                    <li>把模块安装到node_modules目录中.</li>
-                    <li>在package.json的dependencies属性下添加这个模块.</li>
-                    <li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
-                    <li>之后运行<code>npm install --production</code> 或者注明NODE<em>ENV变量值为production时, 会自动安装这个模块到node</em>modules目录中.
-                    </li>
-                </ul>
-                <div id="3"><h3>3 npm install --save-dev</h3></div>
-                <ul>
-                    <li>把msbuild包安装到node_modules目录中.</li>
-                    <li>在package.json的devDependencies属性下添加这个模块.</li>
-                    <li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
-                    <li>之后运行"npm install --production"或者注明NODE<em>ENV变量值为production时, 不会自动安装这个模块到node</em>modules目录中.
-                    </li>
-                </ul>
-                <div id="4"><h3>4 npm install --save和--save-dev参数使用原则</h3></div>
-                <p>运行时需要用到的包使用--save,否则使用--save-dev.</p>
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 npm install不带--save和--save-dev参数</a><br><a href="#2">2 npm install --save</a><br><a href="#3">3 npm install --save-dev</a><br><a href="#4">4 npm install --save和--save-dev参数使用原则</a></div></div><div id="1"><h3>1 npm install不带--save和--save-dev参数</h3></div>
+<ul>
+<li>把模块安装到当前目录node_modules目录中.</li>
+<li>不修改package.json.</li>
+<li>之后运行npm install命令时,不会自动安装这个模块.</li>
+</ul>
+<div id="2"><h3>2 npm install --save</h3></div>
+<ul>
+<li>把模块安装到node_modules目录中.</li>
+<li>在package.json的dependencies属性下添加这个模块.</li>
+<li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
+<li>之后运行<code>npm install --production</code> 或者注明NODE<em>ENV变量值为production时, 会自动安装这个模块到node</em>modules目录中.</li>
+</ul>
+<div id="3"><h3>3 npm install --save-dev</h3></div>
+<ul>
+<li>把msbuild包安装到node_modules目录中.</li>
+<li>在package.json的devDependencies属性下添加这个模块.</li>
+<li>之后运行npm install命令时,会自动安装这个模块到node_modules目录中.</li>
+<li>之后运行"npm install --production"或者注明NODE<em>ENV变量值为production时, 不会自动安装这个模块到node</em>modules目录中.</li>
+</ul>
+<div id="4"><h3>4 npm install --save和--save-dev参数使用原则</h3></div>
+<p>运行时需要用到的包使用--save,否则使用--save-dev.</p>
             </div>
         </div>
     </div>
@@ -111,20 +98,20 @@
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/nodejs/faq/3.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/nodejs/faq/3.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/nodejs/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="http://m.dashidan.com/article/nodejs/faq/5.html"> 下一篇 &gt;</a>
+            <a href="http://m.dashidan.com/article/nodejs/faq/5.html"> 下一篇 &gt;</a>
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

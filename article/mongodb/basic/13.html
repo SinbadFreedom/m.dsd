@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -46,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > basic
         > 13.MongoDB查询绑定或嵌套的方法
@@ -59,13 +53,13 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/mongodb/basic/12.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/mongodb/basic/12.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="http://m.dashidan.com/article/mongodb/basic/14.html"> 下一篇 &gt;</a>
+                <a href="http://m.dashidan.com/article/mongodb/basic/14.html"> 下一篇 &gt;</a>
         </div>
     </div>
 
@@ -73,15 +67,9 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>13.MongoDB查询绑定或嵌套的方法</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongodb匹配一个绑定或嵌套的文档</a><br><a href="#2">2
-                        mongodb查询一个嵌套数据字段</a><br><a href="#2.1">&nbsp;&nbsp;2.1 通过字段值相等判断</a><br><a href="#2.2">&nbsp;&nbsp;2.2
-                        通过操作符匹配</a><br><a href="#2.3">&nbsp;&nbsp;2.3 mongodb多条件查询</a><br><a href="#3">3 参考文章</a><br><a
-                            href="#4">4 相关文章</a></div>
-                </div>
-                <p>通过<code>db.collection.find()</code>方法可以查询绑定或内嵌条件条件的文档.</p>
-                <p>插入数据:</p>
-                <pre class="prettyprint"><code>db.inventory.insertMany( [
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 mongodb匹配一个绑定或嵌套的文档</a><br><a href="#2">2 mongodb查询一个嵌套数据字段</a><br><a href="#2.1">&nbsp;&nbsp;2.1 通过字段值相等判断</a><br><a href="#2.2">&nbsp;&nbsp;2.2 通过操作符匹配</a><br><a href="#2.3">&nbsp;&nbsp;2.3 mongodb多条件查询</a><br><a href="#3">3 参考文章</a><br><a href="#4">4 相关文章</a></div></div><p>通过<code>db.collection.find()</code>方法可以查询绑定或内嵌条件条件的文档.</p>
+<p>插入数据:</p>
+<pre class="prettyprint"><code>db.inventory.insertMany( [
    { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
    { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
    { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
@@ -89,27 +77,26 @@
    { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
 ]);
 </code></pre>
-                <div id="1"><h3>1 mongodb匹配一个绑定或嵌套的文档</h3></div>
-                <p>举个栗子.</p>
-                <p>查询<code>size</code>数组满足条件<code>{ h: 14, w: 21, uom: "cm" }</code>的数据.</p>
-                <pre class="prettyprint"><code>db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )
+<div id="1"><h3>1 mongodb匹配一个绑定或嵌套的文档</h3></div>
+<p>举个栗子.</p>
+<p>查询<code>size</code>数组满足条件<code>{ h: 14, w: 21, uom: "cm" }</code>的数据.</p>
+<pre class="prettyprint"><code>db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )
 </code></pre>
-                <div id="2"><h3>2 mongodb查询一个嵌套数据字段</h3></div>
-                <p>查询绑定或者嵌套的数据字段, 采用<code>.</code>字符("field.nestedField").</p>
-                <div id="2.1" class="dsd_title_c_2"><h4>2.1 通过字段值相等判断</h4></div>
-                <pre class="prettyprint"><code>db.inventory.find( { "size.uom": "in" } )
+<div id="2"><h3>2 mongodb查询一个嵌套数据字段</h3></div>
+<p>查询绑定或者嵌套的数据字段, 采用<code>.</code>字符("field.nestedField").</p>
+<div id="2.1"class="dsd_title_c_2"><h4>2.1 通过字段值相等判断</h4></div>
+<pre class="prettyprint"><code>db.inventory.find( { "size.uom": "in" } )
 </code></pre>
-                <div id="2.2" class="dsd_title_c_2"><h4>2.2 通过操作符匹配</h4></div>
-                <pre class="prettyprint"><code>db.inventory.find( { "size.h": { $lt: 15 } } )
+<div id="2.2"class="dsd_title_c_2"><h4>2.2 通过操作符匹配</h4></div>
+<pre class="prettyprint"><code>db.inventory.find( { "size.h": { $lt: 15 } } )
 </code></pre>
-                <div id="2.3" class="dsd_title_c_2"><h4>2.3 mongodb多条件查询</h4></div>
-                <pre class="prettyprint"><code>db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } )
+<div id="2.3"class="dsd_title_c_2"><h4>2.3 mongodb多条件查询</h4></div>
+<pre class="prettyprint"><code>db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } )
 </code></pre>
-                <div id="3"><h3>3 参考文章</h3></div>
-                <p><a href="https://docs.mongodb.com/manual/tutorial/query-embedded-documents/">https://docs.mongodb.com/manual/tutorial/query-embedded-documents/</a>
-                </p>
-                <div id="4"><h3>4 相关文章</h3></div>
-                <p><a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+<div id="3"><h3>3 参考文章</h3></div>
+<p><a href="https://docs.mongodb.com/manual/tutorial/query-embedded-documents/">https://docs.mongodb.com/manual/tutorial/query-embedded-documents/</a></p>
+<div id="4"><h3>4 相关文章</h3></div>
+<p><a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
             </div>
         </div>
     </div>
@@ -119,20 +106,20 @@
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/mongodb/basic/12.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/mongodb/basic/12.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="http://m.dashidan.com/article/mongodb/basic/14.html"> 下一篇 &gt;</a>
+            <a href="http://m.dashidan.com/article/mongodb/basic/14.html"> 下一篇 &gt;</a>
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

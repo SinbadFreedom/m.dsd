@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>linux安装配置SVN及常用命令</title>
-    <meta name="description"
-          content="linux安装svn服务 linux创建svn仓储 linux修改匿名访问的权限 linux修改认证用户的权限 linux修改svn用户名和密码 linux启动svn服务">
+    <meta name="description" content="linux安装svn服务 linux创建svn仓储 linux修改匿名访问的权限 linux修改认证用户的权限 linux修改svn用户名和密码 linux启动svn服务">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -47,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/linux/index.html">linux</a> > ubuntu
         > 2.linux安装配置SVN及常用命令
@@ -60,13 +53,13 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/linux/ubuntu/1.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/linux/ubuntu/1.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> 下一篇 &gt;</a>
+                <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> 下一篇 &gt;</a>
         </div>
     </div>
 
@@ -74,57 +67,47 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>2.linux安装配置SVN及常用命令</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux安装svn服务</a><br><a href="#1.1">&nbsp;&nbsp;1.1
-                        ubuntu安装svn服务subversion</a><br><a href="#1.2">&nbsp;&nbsp;1.2 Centos安装svn服务subversion</a><br><a
-                            href="#2">2 linux创建svn仓储</a><br><a href="#3">3 linux修改svn设置</a><br><a href="#3.1">&nbsp;&nbsp;3.1
-                        修改conf/svnserve.conf文件</a><br><a href="#3.2">&nbsp;&nbsp;3.2 linux修改匿名访问的权限</a><br><a
-                            href="#3.3">&nbsp;&nbsp;3.3 linux修改认证用户的权限</a><br><a href="#3.4">&nbsp;&nbsp;3.4
-                        linux修改密码数据库的路径</a><br><a href="#4">4 linux修改svn用户名和密码</a><br><a href="#5">5 linux启动svn服务</a>
-                    </div>
-                </div>
-                <div id="1"><h3>1 linux安装svn服务</h3></div>
-                <div id="1.1" class="dsd_title_c_2"><h4>1.1 ubuntu安装svn服务subversion</h4></div>
-                <p>输入命令:</p>
-                <pre class="prettyprint"><code>apt-get install subversion
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux安装svn服务</a><br><a href="#1.1">&nbsp;&nbsp;1.1 ubuntu安装svn服务subversion</a><br><a href="#1.2">&nbsp;&nbsp;1.2 Centos安装svn服务subversion</a><br><a href="#2">2 linux创建svn仓储</a><br><a href="#3">3 linux修改svn设置</a><br><a href="#3.1">&nbsp;&nbsp;3.1 修改conf/svnserve.conf文件</a><br><a href="#3.2">&nbsp;&nbsp;3.2 linux修改匿名访问的权限</a><br><a href="#3.3">&nbsp;&nbsp;3.3 linux修改认证用户的权限</a><br><a href="#3.4">&nbsp;&nbsp;3.4 linux修改密码数据库的路径</a><br><a href="#4">4 linux修改svn用户名和密码</a><br><a href="#5">5 linux启动svn服务</a></div></div><div id="1"><h3>1 linux安装svn服务</h3></div>
+<div id="1.1"class="dsd_title_c_2"><h4>1.1 ubuntu安装svn服务subversion</h4></div>
+<p>输入命令:</p>
+<pre class="prettyprint"><code>apt-get install subversion
 </code></pre>
-                <div id="1.2" class="dsd_title_c_2"><h4>1.2 Centos安装svn服务subversion</h4></div>
-                <p>输入命令:</p>
-                <pre class="prettyprint"><code>yum install subversion
+<div id="1.2"class="dsd_title_c_2"><h4>1.2 Centos安装svn服务subversion</h4></div>
+<p>输入命令:</p>
+<pre class="prettyprint"><code>yum install subversion
 </code></pre>
-                <div id="2"><h3>2 linux创建svn仓储</h3></div>
-                <p>输入命令:</p>
-                <pre class="prettyprint"><code>mkdir -p /svn/plateform
+<div id="2"><h3>2 linux创建svn仓储</h3></div>
+<p>输入命令:</p>
+<pre class="prettyprint"><code>mkdir -p /svn/plateform
 svnadmin create /svn/plateform
 </code></pre>
-                <div id="3"><h3>3 linux修改svn设置</h3></div>
-                <div id="3.1" class="dsd_title_c_2"><h4>3.1 修改conf/svnserve.conf文件</h4></div>
-                <p>这个文件是svn的权限配置文件在svn安装目录下.去掉#[general]前面的#号</p>
-                <pre class="prettyprint"><code>[general]
+<div id="3"><h3>3 linux修改svn设置</h3></div>
+<div id="3.1"class="dsd_title_c_2"><h4>3.1 修改conf/svnserve.conf文件</h4></div>
+<p>这个文件是svn的权限配置文件在svn安装目录下.去掉#[general]前面的#号</p>
+<pre class="prettyprint"><code>[general]
 </code></pre>
-                <div id="3.2" class="dsd_title_c_2"><h4>3.2 linux修改匿名访问的权限</h4></div>
-                <p>svn的文件匿名访问的权限可以是read,write,none,默认为read.这个必须修改, 否则默认是匿名用户可以下载,
-                    这样对于svn中的文件信息不安全.将"anon-access"改为"none".可以设置为默认不允许访问.</p>
-                <pre class="prettyprint"><code>anon-access = none
+<div id="3.2"class="dsd_title_c_2"><h4>3.2 linux修改匿名访问的权限</h4></div>
+<p>svn的文件匿名访问的权限可以是read,write,none,默认为read.这个必须修改, 否则默认是匿名用户可以下载, 这样对于svn中的文件信息不安全.将"anon-access"改为"none".可以设置为默认不允许访问.</p>
+<pre class="prettyprint"><code>anon-access = none
 </code></pre>
-                <div id="3.3" class="dsd_title_c_2"><h4>3.3 linux修改认证用户的权限</h4></div>
-                <p>svn的认证用户的权限可以是read,write,none,默认为write.</p>
-                <pre class="prettyprint"><code>auth-access = write
+<div id="3.3"class="dsd_title_c_2"><h4>3.3 linux修改认证用户的权限</h4></div>
+<p>svn的认证用户的权限可以是read,write,none,默认为write.</p>
+<pre class="prettyprint"><code>auth-access = write
 </code></pre>
-                <div id="3.4" class="dsd_title_c_2"><h4>3.4 linux修改密码数据库的路径</h4></div>
-                <p>去掉"password-db"前面的"#",这样表示在passwd文件中来设定用户的密码.</p>
-                <pre class="prettyprint"><code>password-db = passwd
+<div id="3.4"class="dsd_title_c_2"><h4>3.4 linux修改密码数据库的路径</h4></div>
+<p>去掉"password-db"前面的"#",这样表示在passwd文件中来设定用户的密码.</p>
+<pre class="prettyprint"><code>password-db = passwd
 </code></pre>
-                <div id="4"><h3>4 linux修改svn用户名和密码</h3></div>
-                <p>修改配置文件passwd,[users]部分设置用户名和密码,等号前边是用户名后边是密码.</p>
-                <pre class="prettyprint"><code>[users]
+<div id="4"><h3>4 linux修改svn用户名和密码</h3></div>
+<p>修改配置文件passwd,[users]部分设置用户名和密码,等号前边是用户名后边是密码.</p>
+<pre class="prettyprint"><code>[users]
 dashidan.com = 大屎蛋教程网
 </code></pre>
-                <div id="5"><h3>5 linux启动svn服务</h3></div>
-                <p>输入命令:</p>
-                <pre class="prettyprint"><code>svnserve -d -r /svn/dashidan.com
+<div id="5"><h3>5 linux启动svn服务</h3></div>
+<p>输入命令:</p>
+<pre class="prettyprint"><code>svnserve -d -r /svn/dashidan.com
 </code></pre>
-                <p>完成, 现在可以使用svn客户端工具比如"TutorialSVN"连接svn服务器了.</p>
+<p>完成, 现在可以使用svn客户端工具比如"TutorialSVN"连接svn服务器了.</p>
             </div>
         </div>
     </div>
@@ -134,20 +117,20 @@ dashidan.com = 大屎蛋教程网
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/linux/ubuntu/1.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/linux/ubuntu/1.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> 下一篇 &gt;</a>
+            <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> 下一篇 &gt;</a>
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

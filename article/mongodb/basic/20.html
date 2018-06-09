@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -46,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/mongodb/index.html">mongodb</a> > basic
         > 20.SQL与MongoDB对应表
@@ -59,7 +53,7 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/mongodb/basic/19.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/mongodb/basic/19.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
@@ -72,441 +66,380 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>20.SQL与MongoDB对应表</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 术语和概念</a><br><a href="#2">2 创建与改变</a><br><a
-                            href="#3">3 插入</a><br><a href="#4">4 选择查询</a><br><a href="#5">5 修改数据</a><br><a href="#6">6
-                        删除数据</a><br><a href="#7">7 参考文章</a><br><a href="#8">8 相关文章</a></div>
-                </div>
-                <div id="1"><h3>1 术语和概念</h3></div>
-                <table class="table table-bordered table-responsive text-center">
-                    <thead>
-                    <tr class="info">
-                        <td>SQL</td>
-                        <td>MongoDB</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>table</td>
-                        <td>collection</td>
-                    </tr>
-                    <tr>
-                        <td>row</td>
-                        <td>document或BSON document</td>
-                    </tr>
-                    <tr>
-                        <td>column</td>
-                        <td>field</td>
-                    </tr>
-                    <tr>
-                        <td>index</td>
-                        <td>index</td>
-                    </tr>
-                    <tr>
-                        <td>table joins</td>
-                        <td>$lookup, 绑定文档</td>
-                    </tr>
-                    <tr>
-                        <td>选定任一列作为主键</td>
-                        <td>自定指定`_id`为主键</td>
-                    </tr>
-                    <tr>
-                        <td>aggregation (e.g. group by)</td>
-                        <td>aggregation pipeline</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div id="2"><h3>2 创建与改变</h3></div>
-                <table class="table table-bordered table-responsive text-center">
-                    <thead>
-                    <tr class="info">
-                        <td>SQL语句</td>
-                        <td>MongoDB语句</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>CREATE TABLE people (
-                            id MEDIUMINT NOT NULL
-                            AUTO_INCREMENT,
-                            user_id Varchar(30),
-                            age Number,
-                            status char(1),
-                            PRIMARY KEY (id)
-                            )
-                        </td>
-                        <td>db.people.insertOne( {
-                            user_id: "abc123",
-                            age: 55,
-                            status: "A"
-                            } )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ALTER TABLE people
-                            ADD join_date DATETIME
-                        </td>
-                        <td>db.people.updateMany(
-                            { },
-                            { $set: { join_date: new Date() } }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ALTER TABLE people
-                            DROP COLUMN join_date
-                        </td>
-                        <td>db.people.updateMany(
-                            { },
-                            { $unset: { "join_date": "" } }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CREATE INDEX idx_user_id_asc
-                            ON people(user_id)
-                        </td>
-                        <td>db.people.createIndex( { user_id: 1 } )</td>
-                    </tr>
-                    <tr>
-                        <td>CREATE INDEX
-                            idx_user_id_asc_age_desc
-                            ON people(user_id, age DESC)
-                        </td>
-                        <td>db.people.createIndex( { user_id: 1, age: -1 } )</td>
-                    </tr>
-                    <tr>
-                        <td>CREATE INDEX
-                            idx_user_id_asc_age_desc
-                            ON people(user_id, age DESC)
-                        </td>
-                        <td>db.people.createIndex( { user_id: 1, age: -1 } )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>DROP TABLE people</td>
-                        <td>db.people.drop()</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div id="3"><h3>3 插入</h3></div>
-                <table class="table table-bordered table-responsive text-center">
-                    <thead>
-                    <tr class="info">
-                        <td>SQL INSERT</td>
-                        <td>MongoDB insertOne()</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>INSERT INTO people(user_id,
-                            age,
-                            status)
-                            VALUES ("bcd001",
-                            45,
-                            "A")
-                        </td>
-                        <td>db.people.insertOne(
-                            { user_id: "bcd001", age: 45, status: "A" }
-                            )
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div id="4"><h3>4 选择查询</h3></div>
-                <table class="table table-bordered table-responsive text-center">
-                    <thead>
-                    <tr class="info">
-                        <td>SQL SELECT</td>
-                        <td>MongoDB find()</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                        </td>
-                        <td>db.people.find()</td>
-                    </tr>
-                    <tr>
-                        <td>SELECT id,
-                            user_id,
-                            status
-                            FROM people
-                        </td>
-                        <td>db.people.find(
-                            { },
-                            { user_id: 1, status: 1 }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT user_id, status
-                            FROM people
-                        </td>
-                        <td>db.people.find(
-                            { },
-                            { user_id: 1, status: 1, _id: 0 }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE status = "A"
-                        </td>
-                        <td>db.people.find(
-                            { status: "A" }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT user_id, status
-                            FROM people
-                            WHERE status = "A"
-                        </td>
-                        <td>db.people.find(
-                            { status: "A" },
-                            { user_id: 1, status: 1, _id: 0 }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE status != "A"
-                        </td>
-                        <td>db.people.find(
-                            { status: { $ne: "A" } }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE status = "A"
-                            AND age = 50
-                        </td>
-                        <td>db.people.find(
-                            { status: "A",
-                            age: 50 }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE status = "A"
-                            OR age = 50
-                        </td>
-                        <td>db.people.find(
-                            { $or: [ { status: "A" } ,
-                            { age: 50 } ] }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE age > 25
-                        </td>
-                        <td>db.people.find(
-                            { age: { $gt: 25 } }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE age < 25
-                        </td>
-                        <td>db.people.find(
-                            { age: { $lt: 25 } }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE age > 25
-                            AND age <= 50
-                        </td>
-                        <td>db.people.find(
-                            { age: { $gt: 25, $lte: 50 } }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE user_id like "%bc%"
-                        </td>
-                        <td>db.people.find( { user_id: /bc/ } )
-                            -or-
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 术语和概念</a><br><a href="#2">2 创建与改变</a><br><a href="#3">3 插入</a><br><a href="#4">4 选择查询</a><br><a href="#5">5 修改数据</a><br><a href="#6">6 删除数据</a><br><a href="#7">7 参考文章</a><br><a href="#8">8 相关文章</a></div></div><div id="1"><h3>1 术语和概念</h3></div>
+<table class="table table-bordered table-responsive text-center">
+    <thead>
+        <tr class="info">
+            <td>SQL</td>
+            <td>MongoDB</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>table</td>
+        <td>collection</td>
+    </tr>
+    <tr>
+        <td>row</td>
+        <td>document或BSON document</td>
+    </tr>
+    <tr>
+        <td>column</td>
+        <td>field</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>index</td>
+    </tr>
+    <tr>
+        <td>table joins</td>
+        <td>$lookup, 绑定文档</td>
+    </tr>
+    <tr>
+        <td>选定任一列作为主键</td>
+        <td>自定指定`_id`为主键</td>
+    </tr>
+    <tr>
+        <td>aggregation (e.g. group by)</td>
+        <td>aggregation pipeline</td>
+    </tr>
+    </tbody>
+</table>
+<div id="2"><h3>2 创建与改变</h3></div>
+<table class="table table-bordered table-responsive text-center">
+    <thead>
+        <tr class="info">
+            <td>SQL语句</td>
+            <td>MongoDB语句</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>CREATE TABLE people (
+    id MEDIUMINT NOT NULL
+        AUTO_INCREMENT,
+    user_id Varchar(30),
+    age Number,
+    status char(1),
+    PRIMARY KEY (id)
+)</td>
+        <td>db.people.insertOne( {
+    user_id: "abc123",
+    age: 55,
+    status: "A"
+ } )</td>
+    </tr>
+    <tr>
+        <td>ALTER TABLE people
+ADD join_date DATETIME</td>
+        <td>db.people.updateMany(
+    { },
+    { $set: { join_date: new Date() } }
+)</td>
+    </tr>
+    <tr>
+        <td>ALTER TABLE people
+DROP COLUMN join_date</td>
+        <td>db.people.updateMany(
+    { },
+    { $unset: { "join_date": "" } }
+)</td>
+    </tr>
+    <tr>
+        <td>CREATE INDEX idx_user_id_asc
+ON people(user_id)</td>
+        <td>db.people.createIndex( { user_id: 1 } )</td>
+    </tr>
+    <tr>
+        <td>CREATE INDEX
+       idx_user_id_asc_age_desc
+ON people(user_id, age DESC)</td>
+        <td>db.people.createIndex( { user_id: 1, age: -1 } )</td>
+    </tr>
+    <tr>
+        <td>CREATE INDEX
+       idx_user_id_asc_age_desc
+ON people(user_id, age DESC)</td>
+        <td>db.people.createIndex( { user_id: 1, age: -1 } )
+</td>
+    </tr>
+    <tr>
+        <td>DROP TABLE people</td>
+        <td>db.people.drop()</td>
+    </tr>
+    </tbody>
+</table>
+<div id="3"><h3>3 插入</h3></div>
+<table class="table table-bordered table-responsive text-center">
+    <thead>
+        <tr class="info">
+            <td>SQL INSERT</td>
+            <td>MongoDB insertOne()</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>INSERT INTO people(user_id,
+                  age,
+                  status)
+VALUES ("bcd001",
+        45,
+        "A")</td>
+        <td>db.people.insertOne(
+   { user_id: "bcd001", age: 45, status: "A" }
+)</td>
+    </tr>
+    </tbody>
+</table>
+<div id="4"><h3>4 选择查询</h3></div>
+<table class="table table-bordered table-responsive text-center">
+    <thead>
+        <tr class="info">
+            <td>SQL SELECT</td>
+            <td>MongoDB find()</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>SELECT *
+FROM people</td>
+        <td>db.people.find()</td>
+    </tr>
+    <tr>
+        <td>SELECT id,
+       user_id,
+       status
+FROM people</td>
+        <td>db.people.find(
+    { },
+    { user_id: 1, status: 1 }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT user_id, status
+FROM people</td>
+        <td>db.people.find(
+    { },
+    { user_id: 1, status: 1, _id: 0 }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE status = "A"</td>
+        <td>db.people.find(
+    { status: "A" }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT user_id, status
+FROM people
+WHERE status = "A"</td>
+        <td>db.people.find(
+    { status: "A" },
+    { user_id: 1, status: 1, _id: 0 }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE status != "A"</td>
+        <td>db.people.find(
+    { status: { $ne: "A" } }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE status = "A"
+AND age = 50</td>
+        <td>db.people.find(
+    { status: "A",
+      age: 50 }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE status = "A"
+OR age = 50</td>
+        <td>db.people.find(
+    { $or: [ { status: "A" } ,
+             { age: 50 } ] }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE age > 25</td>
+        <td>db.people.find(
+    { age: { $gt: 25 } }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE age < 25</td>
+        <td>db.people.find(
+   { age: { $lt: 25 } }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE age > 25
+AND   age <= 50</td>
+        <td>db.people.find(
+   { age: { $gt: 25, $lte: 50 } }
+)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE user_id like "%bc%"</td>
+        <td>db.people.find( { user_id: /bc/ } )
+-or-
 
-                            db.people.find( { user_id: { $regex: /bc/ } } )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE user_id like "bc%"
-                        </td>
-                        <td>db.people.find( { user_id: /^bc/ } )
-                            -or-
+db.people.find( { user_id: { $regex: /bc/ } } )</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE user_id like "bc%"</td>
+        <td>db.people.find( { user_id: /^bc/ } )
+-or-
 
-                            db.people.find( { user_id: { $regex: /^bc/ } } )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE status = "A"
-                            ORDER BY user_id ASC
-                        </td>
-                        <td>db.people.find( { status: "A" } ).sort( { user_id: 1 } )</td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE status = "A"
-                            ORDER BY user_id DESC
-                        </td>
-                        <td>db.people.find( { status: "A" } ).sort( { user_id: -1 } )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            WHERE status = "A"
-                            ORDER BY user_id DESC
-                        </td>
-                        <td>db.people.find( { status: "A" } ).sort( { user_id: -1 } )</td>
-                    </tr>
-                    <tr>
-                        <td>SELECT COUNT(*)
-                            FROM people
-                        </td>
-                        <td>db.people.count()
-                            or
+db.people.find( { user_id: { $regex: /^bc/ } } )</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE status = "A"
+ORDER BY user_id ASC</td>
+        <td>db.people.find( { status: "A" } ).sort( { user_id: 1 } )</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE status = "A"
+ORDER BY user_id DESC</td>
+        <td>db.people.find( { status: "A" } ).sort( { user_id: -1 } )
+</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+WHERE status = "A"
+ORDER BY user_id DESC</td>
+        <td>db.people.find( { status: "A" } ).sort( { user_id: -1 } )</td>
+    </tr>
+    <tr>
+        <td>SELECT COUNT(*)
+FROM people</td>
+        <td>db.people.count()
+or
 
-                            db.people.find().count()
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT COUNT(user_id)
-                            FROM people
-                        </td>
-                        <td>db.people.count( { user_id: { $exists: true } } )
-                            or
+db.people.find().count()</td>
+    </tr>
+    <tr>
+        <td>SELECT COUNT(user_id)
+FROM people</td>
+        <td>db.people.count( { user_id: { $exists: true } } )
+or
 
-                            db.people.find( { user_id: { $exists: true } } ).count()
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT COUNT(*)
-                            FROM people
-                            WHERE age > 30
-                        </td>
-                        <td>db.people.count( { age: { $gt: 30 } } )
-                            or
+db.people.find( { user_id: { $exists: true } } ).count()</td>
+    </tr>
+    <tr>
+        <td>SELECT COUNT(*)
+FROM people
+WHERE age > 30</td>
+        <td>db.people.count( { age: { $gt: 30 } } )
+or
 
-                            db.people.find( { age: { $gt: 30 } } ).count()
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT DISTINCT(status)
-                            FROM people
-                        </td>
-                        <td>db.people.distinct( "status" )</td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            LIMIT 1
-                        </td>
-                        <td>db.people.findOne()
-                            or
+db.people.find( { age: { $gt: 30 } } ).count()</td>
+    </tr>
+    <tr>
+        <td>SELECT DISTINCT(status)
+FROM people</td>
+        <td>db.people.distinct( "status" )</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+LIMIT 1</td>
+        <td>db.people.findOne()
+or
 
-                            db.people.find().limit(1)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SELECT *
-                            FROM people
-                            LIMIT 5
-                            SKIP 10
-                        </td>
-                        <td>db.people.find().limit(5).skip(10)</td>
-                    </tr>
-                    <tr>
-                        <td>EXPLAIN SELECT *
-                            FROM people
-                            WHERE status = "A"
-                        </td>
-                        <td>db.people.find( { status: "A" } ).explain()</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div id="5"><h3>5 修改数据</h3></div>
-                <table class="table table-bordered table-responsive text-center">
-                    <thead>
-                    <tr class="info">
-                        <td>SQL Update</td>
-                        <td>MongoDB updateMany()</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>UPDATE people
-                            SET status = "C"
-                            WHERE age > 25
-                        </td>
-                        <td>db.people.updateMany(
-                            { age: { $gt: 25 } },
-                            { $set: { status: "C" } }
-                            )
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>UPDATE people
-                            SET age = age + 3
-                            WHERE status = "A"
-                        </td>
-                        <td>db.people.updateMany(
-                            { status: "A" } ,
-                            { $inc: { age: 3 } }
-                            )
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div id="6"><h3>6 删除数据</h3></div>
-                <table class="table table-bordered table-responsive text-center">
-                    <thead>
-                    <tr class="info">
-                        <td>SQL Delete</td>
-                        <td>MongoDB deleteMany()</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>DELETE FROM people
-                            WHERE status = "D"
-                        </td>
-                        <td>db.people.deleteMany( { status: "D" } )</td>
-                    </tr>
-                    <tr>
-                        <td>DELETE FROM people</td>
-                        <td>db.people.deleteMany({})</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div id="7"><h3>7 参考文章</h3></div>
-                <p><a href="https://docs.mongodb.com/manual/reference/sql-comparison/">https://docs.mongodb.com/manual/reference/sql-comparison/</a>
-                </p>
-                <div id="8"><h3>8 相关文章</h3></div>
-                <p><a href="http://dashidan.com/article/mongodb/index.html">MongoDB中文文档</a></p>
+db.people.find().limit(1)</td>
+    </tr>
+    <tr>
+        <td>SELECT *
+FROM people
+LIMIT 5
+SKIP 10</td>
+        <td>db.people.find().limit(5).skip(10)</td>
+    </tr>
+    <tr>
+        <td>EXPLAIN SELECT *
+FROM people
+WHERE status = "A"</td>
+        <td>db.people.find( { status: "A" } ).explain()</td>
+    </tr>
+    </tbody>
+</table>
+<div id="5"><h3>5 修改数据</h3></div>
+<table class="table table-bordered table-responsive text-center">
+    <thead>
+        <tr class="info">
+            <td>SQL Update</td>
+            <td>MongoDB updateMany() </td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>UPDATE people
+SET status = "C"
+WHERE age > 25</td>
+        <td>db.people.updateMany(
+   { age: { $gt: 25 } },
+   { $set: { status: "C" } }
+)</td>
+    </tr>
+    <tr>
+        <td>UPDATE people
+SET age = age + 3
+WHERE status = "A"</td>
+        <td>db.people.updateMany(
+   { status: "A" } ,
+   { $inc: { age: 3 } }
+)</td>
+    </tr>
+    </tbody>
+</table>
+<div id="6"><h3>6 删除数据</h3></div>
+<table class="table table-bordered table-responsive text-center">
+    <thead>
+        <tr class="info">
+            <td>SQL Delete</td>
+            <td>MongoDB deleteMany()</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>DELETE FROM people
+WHERE status = "D"</td>
+        <td>db.people.deleteMany( { status: "D" } )</td>
+    </tr>
+    <tr>
+        <td>DELETE FROM people</td>
+        <td>db.people.deleteMany({})</td>
+    </tr>
+    </tbody>
+</table>
+<div id="7"><h3>7 参考文章</h3></div>
+<p><a href="https://docs.mongodb.com/manual/reference/sql-comparison/">https://docs.mongodb.com/manual/reference/sql-comparison/</a></p>
+<div id="8"><h3>8 相关文章</h3></div>
+<p><a href="http://localhost/article/mongodb/index.html">MongoDB中文文档</a></p>
             </div>
         </div>
     </div>
@@ -516,7 +449,7 @@
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/mongodb/basic/19.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/mongodb/basic/19.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/mongodb/index.html">目录</a>
@@ -525,10 +458,10 @@
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -46,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/linux/index.html">linux</a> > ubuntu
         > 4.linux安装配置Zookeeper及常用命令
@@ -59,13 +53,13 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="http://m.dashidan.com/article/linux/ubuntu/5.html"> 下一篇 &gt;</a>
+                <a href="http://m.dashidan.com/article/linux/ubuntu/5.html"> 下一篇 &gt;</a>
         </div>
     </div>
 
@@ -73,35 +67,29 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>4.linux安装配置Zookeeper及常用命令</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux下载zookeeper</a><br><a href="#2">2
-                        linux解压缩zookeeper源码</a><br><a href="#3">3 打开conf目录</a><br><a href="#4">4 拷贝zoo_samle.cfg
-                        为zoo.cfg</a><br><a href="#5">5 linux配置zookeeper环境变量</a><br><a href="#6">6
-                        linux启动zookeeper</a><br><a href="#7">7 测试 </a></div>
-                </div>
-                <div id="1"><h3>1 linux下载zookeeper</h3></div>
-                <pre class="prettyprint"><code>wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.5.2-alpha/zookeeper-3.5.2-alpha.tar.gz
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 linux下载zookeeper</a><br><a href="#2">2 linux解压缩zookeeper源码</a><br><a href="#3">3 打开conf目录</a><br><a href="#4">4 拷贝zoo_samle.cfg 为zoo.cfg</a><br><a href="#5">5 linux配置zookeeper环境变量</a><br><a href="#6">6 linux启动zookeeper</a><br><a href="#7">7 测试    </a></div></div><div id="1"><h3>1 linux下载zookeeper</h3></div>
+<pre class="prettyprint"><code>wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.5.2-alpha/zookeeper-3.5.2-alpha.tar.gz
 </code></pre>
-                <div id="2"><h3>2 linux解压缩zookeeper源码</h3></div>
-                <pre class="prettyprint"><code>tar -zxvf zookeeper-3.5.2-xxxx.tar.gz
+<div id="2"><h3>2 linux解压缩zookeeper源码</h3></div>
+<pre class="prettyprint"><code>tar -zxvf zookeeper-3.5.2-xxxx.tar.gz
 </code></pre>
-                <div id="3"><h3>3 打开conf目录</h3></div>
-                <pre class="prettyprint"><code>cd /zookeeper-3.5.2-alpha/conf
+<div id="3"><h3>3 打开conf目录</h3></div>
+<pre class="prettyprint"><code>cd /zookeeper-3.5.2-alpha/conf
 </code></pre>
-                <div id="4"><h3>4 拷贝zoo_samle.cfg 为zoo.cfg</h3></div>
-                <pre class="prettyprint"><code>cp zoo_samle.cfg zoo.cfg
+<div id="4"><h3>4 拷贝zoo_samle.cfg 为zoo.cfg</h3></div>
+<pre class="prettyprint"><code>cp zoo_samle.cfg zoo.cfg
 </code></pre>
-                <div id="5"><h3>5 linux配置zookeeper环境变量</h3></div>
-                <pre class="prettyprint"><code>vim /etc/profile
+<div id="5"><h3>5 linux配置zookeeper环境变量</h3></div>
+<pre class="prettyprint"><code>vim /etc/profile
 export PATH=/download/zookeeper-3.5.2-alpha:$PATH
 source /etc/profile
 </code></pre>
-                <div id="6"><h3>6 linux启动zookeeper</h3></div>
-                <pre class="prettyprint"><code>./zkServer.sh start
+<div id="6"><h3>6 linux启动zookeeper</h3></div>
+<pre class="prettyprint"><code>./zkServer.sh start
 </code></pre>
-                <div id="7"><h3>7 测试 </h3></div>
-                <p>通过telnet命令测试zookeeper默认端口2181是否开通:</p>
-                <pre class="prettyprint"><code>telnet dashidan.com 2181
+<div id="7"><h3>7 测试    </h3></div>
+<p>通过telnet命令测试zookeeper默认端口2181是否开通:</p>
+<pre class="prettyprint"><code>telnet dashidan.com 2181
 </code></pre>
             </div>
         </div>
@@ -112,20 +100,20 @@ source /etc/profile
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/linux/ubuntu/3.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="http://m.dashidan.com/article/linux/ubuntu/5.html"> 下一篇 &gt;</a>
+            <a href="http://m.dashidan.com/article/linux/ubuntu/5.html"> 下一篇 &gt;</a>
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>

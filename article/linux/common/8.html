@@ -11,8 +11,8 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
 
-    <link rel="stylesheet" href="http://dashidan.com/css/bootstrap.css">
-    <link rel="stylesheet" href="http://dashidan.com/css/dashidan.css">
+    <link rel="stylesheet" href="http://localhost/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/css/dashidan.css">
 
     <script>
         var _hmt = _hmt || [];
@@ -46,12 +46,6 @@
 
 <div class="container-fluid">
     <div>
-        <script type="text/javascript">
-            /*20:5 创建于 2018/3/24*/
-            var cpro_id = "u3395670";
-        </script>
-        <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js"></script>
-
         <a href="http://m.dashidan.com/index.html">首页</a> > <a
             href="http://m.dashidan.com/article/linux/index.html">linux</a> > common
         > 8.Linux退出telnet
@@ -59,13 +53,13 @@
 
     <div class="single_line">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-            <a href="http://m.dashidan.com/article/linux/common/7.html"> &lt; 上一篇</a>
+                <a href="http://m.dashidan.com/article/linux/common/7.html"> &lt; 上一篇</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
             <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-            <a href="http://m.dashidan.com/article/linux/common/9.html"> 下一篇 &gt;</a>
+                <a href="http://m.dashidan.com/article/linux/common/9.html"> 下一篇 &gt;</a>
         </div>
     </div>
 
@@ -73,35 +67,27 @@
         <div class="col-12">
             <article class="dsd_title_1"><h1>8.Linux退出telnet</h1></article>
             <div id="xs_content_border">
-                <div>
-                    <div class="dsd_catalog"><h3>目录</h3><a href="#1">1 telnet命令测试ip和端口是否开放</a><br><a href="#1.1">&nbsp;&nbsp;1.1
-                        telnet测试已开放端口</a><br><a href="#1.2">&nbsp;&nbsp;1.2 telnet测试没开放端口示例</a><br><a href="#2">2
-                        Linux退出telnet命令行</a></div>
-                </div>
-                <div class="jumbotron">
-                    <p>
-                        在linux系统中,可以通过telnet命令来测试ip和端口是否可以连接.启用这个命令连接成功后,会进入telnet提示符状态.在开发过程和linux服务器部署过成功经常通过telnet命令可以测试IP和端口是否正常,来排查服务器配置或者网络连接问题.</p>
-                </div>
-                <div id="1"><h3>1 telnet命令测试ip和端口是否开放</h3></div>
-                <div id="1.1" class="dsd_title_c_2"><h4>1.1 telnet测试已开放端口</h4></div>
-                <p>由于本机跑着nginx服务器,开通了80端口显示以上信心表示80端口可以连接.通过telnet命令来测试本机的80端口是否可以连接,输入命令"telnet 127.0.0.1 80"显示示例:</p>
-                <pre class="prettyprint"><code>root@dashidan.com:/dashidan.com# telnet 127.0.0.1 80
+                <div><div class="dsd_catalog"><h3>目录</h3><a href="#1">1 telnet命令测试ip和端口是否开放</a><br><a href="#1.1">&nbsp;&nbsp;1.1 telnet测试已开放端口</a><br><a href="#1.2">&nbsp;&nbsp;1.2 telnet测试没开放端口示例</a><br><a href="#2">2 Linux退出telnet命令行</a></div></div><div class="jumbotron">
+<p>在linux系统中,可以通过telnet命令来测试ip和端口是否可以连接.启用这个命令连接成功后,会进入telnet提示符状态.在开发过程和linux服务器部署过成功经常通过telnet命令可以测试IP和端口是否正常,来排查服务器配置或者网络连接问题.</p>  
+</div>
+<div id="1"><h3>1 telnet命令测试ip和端口是否开放</h3></div>
+<div id="1.1"class="dsd_title_c_2"><h4>1.1 telnet测试已开放端口</h4></div>
+<p>由于本机跑着nginx服务器,开通了80端口显示以上信心表示80端口可以连接.通过telnet命令来测试本机的80端口是否可以连接,输入命令"telnet 127.0.0.1 80"显示示例:</p>
+<pre class="prettyprint"><code>root@dashidan.com:/dashidan.com# telnet 127.0.0.1 80
 Trying 127.0.0.1...
 Connected to 127.0.0.1.
 Escape character is '^]'.
 </code></pre>
-                <p>"Escape character is '^]'"这个提示的意思是:通过ESC键退出.按下ESC键shell命令中就会出现"^]"字符.再按下回车即可退出telnet命令.
-                    在这个窗口使用ctrl+c或者ctrl+z都可以退出.</p>
-                <div id="1.2" class="dsd_title_c_2"><h4>1.2 telnet测试没开放端口示例</h4></div>
-                <p>本机没有81端口,通过telnet命令来测试本机的81端口是否可以连接,输入命令"telnet 127.0.0.1 81"显示示例:</p>
-                <pre class="prettyprint"><code>root@dashidan.com:/dashidan.com# telnet 127.0.0.1 81
+<p>"Escape character is '^]'"这个提示的意思是:通过ESC键退出.按下ESC键shell命令中就会出现"^]"字符.再按下回车即可退出telnet命令. 在这个窗口使用ctrl+c或者ctrl+z都可以退出.</p>
+<div id="1.2"class="dsd_title_c_2"><h4>1.2 telnet测试没开放端口示例</h4></div>
+<p>本机没有81端口,通过telnet命令来测试本机的81端口是否可以连接,输入命令"telnet 127.0.0.1 81"显示示例:</p>
+<pre class="prettyprint"><code>root@dashidan.com:/dashidan.com# telnet 127.0.0.1 81
 Trying 127.0.0.1...
 telnet: Unable to connect to remote host: Connection refused
 </code></pre>
-                <p>提示"telnet: Unable to connect to remote host: Connection refused"无法链接远端服务器, 连接被拒绝.表示该ip对应的端口无法连接.
-                    在这个窗口使用ctrl+c或者ctrl+z都可以退出.</p>
-                <div id="2"><h3>2 Linux退出telnet命令行</h3></div>
-                <p>通过"ctrl+]"可以进入telnet命令行.进入telnet命令行后,"Ctrl+c"无法退出telnet命令行,可以使用"Ctrl+z"在或者输入"quit"命令退出telnet命令行.</p>
+<p>提示"telnet: Unable to connect to remote host: Connection refused"无法链接远端服务器, 连接被拒绝.表示该ip对应的端口无法连接. 在这个窗口使用ctrl+c或者ctrl+z都可以退出.</p>
+<div id="2"><h3>2 Linux退出telnet命令行</h3></div>
+<p>通过"ctrl+]"可以进入telnet命令行.进入telnet命令行后,"Ctrl+c"无法退出telnet命令行,可以使用"Ctrl+z"在或者输入"quit"命令退出telnet命令行.</p>
             </div>
         </div>
     </div>
@@ -111,20 +97,20 @@ telnet: Unable to connect to remote host: Connection refused
 
 <footer class="single_line">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-        <a href="http://m.dashidan.com/article/linux/common/7.html"> &lt; 上一篇</a>
+            <a href="http://m.dashidan.com/article/linux/common/7.html"> &lt; 上一篇</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
         <a href="http://m.dashidan.com/article/linux/index.html">目录</a>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a href="http://m.dashidan.com/article/linux/common/9.html"> 下一篇 &gt;</a>
+            <a href="http://m.dashidan.com/article/linux/common/9.html"> 下一篇 &gt;</a>
     </div>
 </footer>
 
-<script src="http://dashidan.com/js/jquery-3.2.1.min.js"></script>
-<script src="http://dashidan.com/js/vendor/modernizr-custom.js"></script>
-<script src="http://dashidan.com/js/bootstrap.js"></script>
-<script src="http://dashidan.com/js/google-code-prettify/run_prettify.js"></script>
-<script src="http://dashidan.com/js/main.js"></script>
+<script src="http://m.dashidan.com/js/jquery-3.2.1.min.js"></script>
+<script src="http://m.dashidan.com/js/vendor/modernizr-custom.js"></script>
+<script src="http://m.dashidan.com/js/bootstrap.js"></script>
+<script src="http://m.dashidan.com/js/google-code-prettify/run_prettify.js"></script>
+<script src="http://m.dashidan.com/js/main.js"></script>
 </body>
 </html>
